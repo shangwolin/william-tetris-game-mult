@@ -637,23 +637,44 @@ async def handle_connection(
 # ── Server Entry Point ─────────────────────────────────────────────────────────
 
 
-async def http_health_check(path: str) -> Optional[bytes]:
-    """Handle HTTP requests (serving index.html for direct browser access)."""
-    if path == "/" or path == "/index.html":
-        try:
-            with open("index.html", "rb") as f:
-                return f.read()
-        except FileNotFoundError:
-            return None
-    return None
+MIME_TYPES = {
+    ".html": "text/html; charset=utf-8",
+    ".css":  "text/css; charset=utf-8",
+    ".js":   "application/javascript; charset=utf-8",
+    ".json": "application/json; charset=utf-8",
+    ".png":  "image/png",
+    ".svg":  "image/svg+xml",
+    ".ico":  "image/x-icon",
+    ".txt":  "text/plain; charset=utf-8",
+    ".md":   "text/markdown; charset=utf-8",
+}
 
+async def http_serve_static(path: str) -> Optional[tuple]:
+    """Serve static files from the project root directory.
 
-async def http_serve_favicon(path: str) -> Optional[bytes]:
-    """Serve a minimal favicon (inline SVG) to avoid 404 errors."""
+    Returns (content, content_type) or None if file not found.
+    Only serves known file types; rejects directory traversal.
+    """
+    # Normalise path
+    if path.endswith("/"):
+        path += "index.html"
     if path == "/favicon.ico":
         svg = b'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect width="16" height="16" fill="#12122a"/><rect x="2" y="2" width="5" height="5" fill="#00f0f0"/><rect x="9" y="2" width="5" height="5" fill="#f0f000"/><rect x="2" y="9" width="5" height="5" fill="#a000f0"/><rect x="9" y="9" width="5" height="5" fill="#00f000"/></svg>'
-        return svg
-    return None
+        return (svg, "image/svg+xml")
+    # Security: reject path traversal
+    cleaned = path.lstrip("/")
+    if ".." in cleaned or "~" in cleaned:
+        return None
+    # Only serve known extensions
+    ext = os.path.splitext(cleaned)[1].lower()
+    if ext not in MIME_TYPES:
+        return None
+    try:
+        with open(cleaned, "rb") as f:
+            content = f.read()
+        return (content, MIME_TYPES[ext])
+    except (FileNotFoundError, IsADirectoryError, PermissionError):
+        return None
 
 
 async def main():
@@ -664,16 +685,12 @@ async def main():
         await handle_connection(websocket, room_manager)
 
     async def process_request(connection, request):
-        """Serve index.html for plain HTTP requests (not WebSocket upgrades)."""
+        """Serve static files for plain HTTP requests (not WebSocket upgrades)."""
         if "Upgrade" not in request.headers:
-            # Try index.html first
-            content = await http_health_check(request.path)
-            if content is not None:
-                return Response(200, "OK", Headers({"Content-Type": "text/html; charset=utf-8"}), content)
-            # Try favicon
-            favicon = await http_serve_favicon(request.path)
-            if favicon is not None:
-                return Response(200, "OK", Headers({"Content-Type": "image/svg+xml"}), favicon)
+            result = await http_serve_static(request.path)
+            if result is not None:
+                content, ctype = result
+                return Response(200, "OK", Headers({"Content-Type": ctype}), content)
         return None  # Let websockets handle WebSocket upgrades
 
     logger.info(f"Starting Tetris Battle Server on {HOST}:{PORT}")

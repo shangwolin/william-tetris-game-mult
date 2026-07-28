@@ -663,6 +663,38 @@
         "findings": []
       }
     },
+    "C:/Users/user/Documents/william-tetris-game/showcase/sw.js": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\showcase\\sw.js",
+      "moduleName": "showcase/sw.js",
+      "exports": [],
+      "imports": [],
+      "language": "javascript",
+      "mtime": "2026-07-28T15:44:20.478Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "showcase",
+        "routes": [],
+        "dataOperations": [
+          {
+            "operation": "read",
+            "access": "network",
+            "line": 14,
+            "evidence": "self.addEventListener('fetch', (e) => {"
+          },
+          {
+            "operation": "read",
+            "access": "network",
+            "line": 16,
+            "evidence": "caches.match(e.request).then(r => r || fetch(e.request))"
+          }
+        ],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
     "C:/Users/user/Documents/william-tetris-game/server.py": {
       "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\server.py",
       "moduleName": "server.py",
@@ -692,8 +724,7 @@
         "reset_room",
         "heartbeat_loop",
         "handle_connection",
-        "http_health_check",
-        "http_serve_favicon",
+        "http_serve_static",
         "main"
       ],
       "exportLines": {
@@ -722,9 +753,8 @@
         "reset_room": 479,
         "heartbeat_loop": 499,
         "handle_connection": 512,
-        "http_health_check": 640,
-        "http_serve_favicon": 651,
-        "main": 659
+        "http_serve_static": 652,
+        "main": 680
       },
       "exportRanges": {
         "PlayerConnection": {
@@ -827,17 +857,13 @@
           "startLine": 512,
           "endLine": 634
         },
-        "http_health_check": {
-          "startLine": 640,
-          "endLine": 648
-        },
-        "http_serve_favicon": {
-          "startLine": 651,
-          "endLine": 656
+        "http_serve_static": {
+          "startLine": 652,
+          "endLine": 677
         },
         "main": {
-          "startLine": 659,
-          "endLine": 688
+          "startLine": 680,
+          "endLine": 705
         }
       },
       "imports": [
@@ -853,7 +879,7 @@
         "game"
       ],
       "language": "python",
-      "mtime": "2026-07-28T14:39:26.279Z",
+      "mtime": "2026-07-28T15:49:18.769Z",
       "ontology": {
         "roles": [
           "source_module"
@@ -885,43 +911,11 @@
           }
         ]
       }
-    },
-    "C:/Users/user/Documents/william-tetris-game/showcase/sw.js": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\showcase\\sw.js",
-      "moduleName": "showcase/sw.js",
-      "exports": [],
-      "imports": [],
-      "language": "javascript",
-      "mtime": "2026-07-28T15:44:20.478Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "showcase",
-        "routes": [],
-        "dataOperations": [
-          {
-            "operation": "read",
-            "access": "network",
-            "line": 14,
-            "evidence": "self.addEventListener('fetch', (e) => {"
-          },
-          {
-            "operation": "read",
-            "access": "network",
-            "line": 16,
-            "evidence": "caches.match(e.request).then(r => r || fetch(e.request))"
-          }
-        ],
-        "security": [],
-        "conventions": [],
-        "findings": []
-      }
     }
   },
   "edges": [],
   "metadata": {
-    "generatedAt": "2026-07-28T15:44:20.631Z",
+    "generatedAt": "2026-07-28T15:49:18.929Z",
     "generator": "repo-graph",
     "nodeCount": 16,
     "edgeCount": 0
