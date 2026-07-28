@@ -84,3 +84,8 @@
 {"ts":"2026-07-28T15:19:23.445Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"$env:PATH = [System.Environment]::GetEnvironmentVariable('PATH','Machine') + \";\" + [System.Environment]::GetEnvironmentVariable('PATH','User'); ngrok version"}
 {"ts":"2026-07-28T15:19:27.291Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"ngrok version 2>&1"}
 {"ts":"2026-07-28T15:21:22.724Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git add -A"}
+{"ts":"2026-07-28T15:21:40.408Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git commit -m \"Update README: add ngrok internet play, PWA, docker-compose, wss auto-detect\""}
+{"ts":"2026-07-28T15:21:47.340Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git push"}
+{"type":"scope_violation","ts":"2026-07-28T15:27:51.147Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","path":"detection","declaredScope":"","resolvedScope":"","action":"bash"}
+{"ts":"2026-07-28T15:27:51.133Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git add -A; if ($?) { git commit -m \"Dockerfile: add manifest.json to container\" }; if ($?) { git push }"}
+{"ts":"2026-07-28T15:28:24.718Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git add -A"}

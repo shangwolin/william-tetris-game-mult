@@ -6,7 +6,7 @@ WORKDIR /app
 RUN pip install --no-cache-dir websockets
 
 # Copy all game files
-COPY server.py game.py index.html ./
+COPY server.py game.py index.html manifest.json ./
 
 # Expose WebSocket port (open index.html in browser on host)
 # For Docker: open http://localhost:8765/ for the game
