@@ -8,6 +8,7 @@ Manages rooms, game state, heartbeat, and client communication.
 import asyncio
 import json
 import logging
+import os
 import random
 import string
 import time

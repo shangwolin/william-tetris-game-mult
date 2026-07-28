@@ -728,148 +728,149 @@
         "main"
       ],
       "exportLines": {
-        "PlayerConnection": 39,
-        "Room": 53,
-        "is_full": 65,
-        "is_empty": 69,
-        "add_player": 73,
-        "remove_player": 87,
-        "get_opponent_id": 93,
-        "get_player": 100,
-        "broadcast": 103,
-        "send_to": 117,
-        "RoomManager": 127,
-        "create_room": 134,
-        "get_room": 146,
-        "remove_room": 150,
-        "join_room": 158,
-        "cleanup_empty_rooms": 173,
-        "handle_message": 185,
-        "start_game": 243,
-        "game_loop": 270,
-        "process_input": 338,
-        "send_game_state": 376,
-        "check_game_over": 438,
-        "reset_room": 479,
-        "heartbeat_loop": 499,
-        "handle_connection": 512,
-        "http_serve_static": 652,
-        "main": 680
+        "PlayerConnection": 40,
+        "Room": 54,
+        "is_full": 66,
+        "is_empty": 70,
+        "add_player": 74,
+        "remove_player": 88,
+        "get_opponent_id": 94,
+        "get_player": 101,
+        "broadcast": 104,
+        "send_to": 118,
+        "RoomManager": 128,
+        "create_room": 135,
+        "get_room": 147,
+        "remove_room": 151,
+        "join_room": 159,
+        "cleanup_empty_rooms": 174,
+        "handle_message": 186,
+        "start_game": 244,
+        "game_loop": 271,
+        "process_input": 339,
+        "send_game_state": 377,
+        "check_game_over": 439,
+        "reset_room": 480,
+        "heartbeat_loop": 500,
+        "handle_connection": 513,
+        "http_serve_static": 653,
+        "main": 681
       },
       "exportRanges": {
         "PlayerConnection": {
-          "startLine": 39,
-          "endLine": 50
+          "startLine": 40,
+          "endLine": 51
         },
         "Room": {
-          "startLine": 53,
-          "endLine": 121
+          "startLine": 54,
+          "endLine": 122
         },
         "is_full": {
-          "startLine": 65,
-          "endLine": 67
+          "startLine": 66,
+          "endLine": 68
         },
         "is_empty": {
-          "startLine": 69,
-          "endLine": 71
+          "startLine": 70,
+          "endLine": 72
         },
         "add_player": {
-          "startLine": 73,
-          "endLine": 85
+          "startLine": 74,
+          "endLine": 86
         },
         "remove_player": {
-          "startLine": 87,
-          "endLine": 91
+          "startLine": 88,
+          "endLine": 92
         },
         "get_opponent_id": {
-          "startLine": 93,
-          "endLine": 98
+          "startLine": 94,
+          "endLine": 99
         },
         "get_player": {
-          "startLine": 100,
-          "endLine": 101
+          "startLine": 101,
+          "endLine": 102
         },
         "broadcast": {
-          "startLine": 103,
-          "endLine": 108
+          "startLine": 104,
+          "endLine": 109
         },
         "send_to": {
-          "startLine": 117,
-          "endLine": 121
+          "startLine": 118,
+          "endLine": 122
         },
         "RoomManager": {
-          "startLine": 127,
-          "endLine": 179
+          "startLine": 128,
+          "endLine": 180
         },
         "create_room": {
-          "startLine": 134,
-          "endLine": 144
+          "startLine": 135,
+          "endLine": 145
         },
         "get_room": {
-          "startLine": 146,
-          "endLine": 148
+          "startLine": 147,
+          "endLine": 149
         },
         "remove_room": {
-          "startLine": 150,
-          "endLine": 156
+          "startLine": 151,
+          "endLine": 157
         },
         "join_room": {
-          "startLine": 158,
-          "endLine": 166
+          "startLine": 159,
+          "endLine": 167
         },
         "cleanup_empty_rooms": {
-          "startLine": 173,
-          "endLine": 179
+          "startLine": 174,
+          "endLine": 180
         },
         "handle_message": {
-          "startLine": 185,
-          "endLine": 237
+          "startLine": 186,
+          "endLine": 238
         },
         "start_game": {
-          "startLine": 243,
-          "endLine": 267
+          "startLine": 244,
+          "endLine": 268
         },
         "game_loop": {
-          "startLine": 270,
-          "endLine": 320
+          "startLine": 271,
+          "endLine": 321
         },
         "process_input": {
-          "startLine": 338,
-          "endLine": 358
+          "startLine": 339,
+          "endLine": 359
         },
         "send_game_state": {
-          "startLine": 376,
-          "endLine": 435
+          "startLine": 377,
+          "endLine": 436
         },
         "check_game_over": {
-          "startLine": 438,
-          "endLine": 476
+          "startLine": 439,
+          "endLine": 477
         },
         "reset_room": {
-          "startLine": 479,
-          "endLine": 493
+          "startLine": 480,
+          "endLine": 494
         },
         "heartbeat_loop": {
-          "startLine": 499,
-          "endLine": 509
+          "startLine": 500,
+          "endLine": 510
         },
         "handle_connection": {
-          "startLine": 512,
-          "endLine": 634
+          "startLine": 513,
+          "endLine": 635
         },
         "http_serve_static": {
-          "startLine": 652,
-          "endLine": 677
+          "startLine": 653,
+          "endLine": 678
         },
         "main": {
-          "startLine": 680,
-          "endLine": 705
+          "startLine": 681,
+          "endLine": 706
         }
       },
       "imports": [
         "asyncio",
         "json",
         "logging",
+        "os",
         "random",
         "string",
         "time",
@@ -879,7 +880,7 @@
         "game"
       ],
       "language": "python",
-      "mtime": "2026-07-28T15:49:18.769Z",
+      "mtime": "2026-07-28T15:58:10.800Z",
       "ontology": {
         "roles": [
           "source_module"
@@ -890,13 +891,13 @@
           {
             "operation": "write",
             "access": "sql",
-            "line": 306,
+            "line": 307,
             "evidence": "# Send state update periodically"
           },
           {
             "operation": "write",
             "access": "unknown",
-            "line": 561,
+            "line": 562,
             "evidence": "json.dumps({\"type\": \"error\", \"message\": \"Failed to create/join room\"})"
           }
         ],
@@ -907,7 +908,7 @@
             "code": "multiple_writes_without_detected_transaction",
             "severity": "low",
             "message": "Multiple write/delete operations were detected without a transaction fact.",
-            "line": 306
+            "line": 307
           }
         ]
       }
@@ -915,7 +916,7 @@
   },
   "edges": [],
   "metadata": {
-    "generatedAt": "2026-07-28T15:49:18.929Z",
+    "generatedAt": "2026-07-28T15:58:10.942Z",
     "generator": "repo-graph",
     "nodeCount": 16,
     "edgeCount": 0

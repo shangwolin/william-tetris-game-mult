@@ -101,3 +101,7 @@
 {"ts":"2026-07-28T15:45:59.539Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git commit -m \"Add showcase/: PWA 一頁式成果發表頁面 (Loop Engineering + Multi-Agent 報告)\""}
 {"ts":"2026-07-28T15:46:03.905Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git push"}
 {"ts":"2026-07-28T15:53:49.716Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git add -A"}
+{"ts":"2026-07-28T15:53:53.884Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git commit -m \"Rename Kimi Agent Swarm → Agent Swarm; add static file server for showcase/\""}
+{"ts":"2026-07-28T15:53:58.621Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git push"}
+{"ts":"2026-07-28T15:58:16.634Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"python -m py_compile server.py 2>&1; Write-Output \"--- compile OK\""}
+{"ts":"2026-07-28T15:59:26.800Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git add -A"}
