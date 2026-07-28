@@ -1,0 +1,17 @@
+﻿{
+  "name": "Tetris Battle",
+  "short_name": "TetrisBattle",
+  "description": "Two-player online Tetris battle game",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a1a",
+  "theme_color": "#12122a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns=\u0027http://www.w3.org/2000/svg\u0027 viewBox=\u00270 0 192 192\u0027%3E%3Crect width=\u0027192\u0027 height=\u0027192\u0027 fill=\u0027%2312122a\u0027/%3E%3Crect x=\u002716\u0027 y=\u002716\u0027 width=\u002770\u0027 height=\u002770\u0027 fill=\u0027%2300f0f0\u0027/%3E%3Crect x=\u0027106\u0027 y=\u002716\u0027 width=\u002770\u0027 height=\u002770\u0027 fill=\u0027%23f0f000\u0027/%3E%3Crect x=\u002716\u0027 y=\u0027106\u0027 width=\u002770\u0027 height=\u002770\u0027 fill=\u0027%23a000f0\u0027/%3E%3Crect x=\u0027106\u0027 y=\u0027106\u0027 width=\u002770\u0027 height=\u002770\u0027 fill=\u0027%2300f000\u0027/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

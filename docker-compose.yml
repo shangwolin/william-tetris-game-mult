@@ -1,0 +1,7 @@
+﻿services:
+  tetris-server:
+    build: .
+    container_name: tetris-battle
+    ports:
+      - "8765:8765"
+    restart: unless-stopped

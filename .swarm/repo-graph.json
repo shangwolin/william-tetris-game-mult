@@ -1,0 +1,906 @@
+{
+  "schema_version": "1.2.0",
+  "workspaceRoot": "C:\\Users\\user\\Documents\\william-tetris-game",
+  "nodes": {
+    "C:/Users/user/Documents/william-tetris-game/test_quick.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_quick.py",
+      "moduleName": "test_quick.py",
+      "exports": [],
+      "imports": [
+        "game"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T13:21:46.879Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "test_quick.py",
+        "routes": [],
+        "dataOperations": [],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/test_import.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_import.py",
+      "moduleName": "test_import.py",
+      "exports": [],
+      "imports": [
+        "game",
+        "server",
+        "server"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T13:23:21.232Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "test_import.py",
+        "routes": [],
+        "dataOperations": [],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/game.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\game.py",
+      "moduleName": "game.py",
+      "exports": [
+        "Board",
+        "seed",
+        "get_next_piece",
+        "new_piece",
+        "valid_position",
+        "lock_piece",
+        "clear_lines",
+        "get_last_lines_cleared",
+        "move",
+        "rotate",
+        "hard_drop",
+        "hold",
+        "tick",
+        "add_garbage",
+        "is_top_out",
+        "get_grid",
+        "get_ghost_position",
+        "get_attack_lines",
+        "get_drop_interval",
+        "set_garbage_queue"
+      ],
+      "exportLines": {
+        "Board": 82,
+        "seed": 120,
+        "get_next_piece": 147,
+        "new_piece": 155,
+        "valid_position": 183,
+        "lock_piece": 197,
+        "clear_lines": 209,
+        "get_last_lines_cleared": 238,
+        "move": 242,
+        "rotate": 252,
+        "hard_drop": 272,
+        "hold": 286,
+        "tick": 322,
+        "add_garbage": 339,
+        "is_top_out": 355,
+        "get_grid": 359,
+        "get_ghost_position": 363,
+        "get_attack_lines": 372,
+        "get_drop_interval": 385,
+        "set_garbage_queue": 389
+      },
+      "exportRanges": {
+        "Board": {
+          "startLine": 82,
+          "endLine": 391
+        },
+        "seed": {
+          "startLine": 120,
+          "endLine": 124
+        },
+        "get_next_piece": {
+          "startLine": 147,
+          "endLine": 153
+        },
+        "new_piece": {
+          "startLine": 155,
+          "endLine": 181
+        },
+        "valid_position": {
+          "startLine": 183,
+          "endLine": 195
+        },
+        "lock_piece": {
+          "startLine": 197,
+          "endLine": 207
+        },
+        "clear_lines": {
+          "startLine": 209,
+          "endLine": 236
+        },
+        "get_last_lines_cleared": {
+          "startLine": 238,
+          "endLine": 240
+        },
+        "move": {
+          "startLine": 242,
+          "endLine": 250
+        },
+        "rotate": {
+          "startLine": 252,
+          "endLine": 270
+        },
+        "hard_drop": {
+          "startLine": 272,
+          "endLine": 284
+        },
+        "hold": {
+          "startLine": 286,
+          "endLine": 320
+        },
+        "tick": {
+          "startLine": 322,
+          "endLine": 337
+        },
+        "add_garbage": {
+          "startLine": 339,
+          "endLine": 353
+        },
+        "is_top_out": {
+          "startLine": 355,
+          "endLine": 357
+        },
+        "get_grid": {
+          "startLine": 359,
+          "endLine": 361
+        },
+        "get_ghost_position": {
+          "startLine": 363,
+          "endLine": 370
+        },
+        "get_attack_lines": {
+          "startLine": 372,
+          "endLine": 383
+        },
+        "get_drop_interval": {
+          "startLine": 385,
+          "endLine": 387
+        },
+        "set_garbage_queue": {
+          "startLine": 389,
+          "endLine": 391
+        }
+      },
+      "imports": [
+        "random",
+        "typing"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T13:28:21.429Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "game.py",
+        "routes": [],
+        "dataOperations": [
+          {
+            "operation": "read",
+            "access": "unknown",
+            "line": 113,
+            "evidence": "# Next preview count"
+          },
+          {
+            "operation": "write",
+            "access": "sql",
+            "line": 221,
+            "evidence": "new_grid.insert(0, [0] * self.width)"
+          },
+          {
+            "operation": "read",
+            "access": "unknown",
+            "line": 339,
+            "evidence": "def add_garbage(self, count: int) -> None:"
+          },
+          {
+            "operation": "read",
+            "access": "unknown",
+            "line": 343,
+            "evidence": "if count <= 0:"
+          },
+          {
+            "operation": "read",
+            "access": "unknown",
+            "line": 346,
+            "evidence": "for _ in range(count):"
+          },
+          {
+            "operation": "read",
+            "access": "unknown",
+            "line": 389,
+            "evidence": "def set_garbage_queue(self, count: int) -> None:"
+          },
+          {
+            "operation": "read",
+            "access": "unknown",
+            "line": 391,
+            "evidence": "self.garbage_queue += count"
+          }
+        ],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/test_core.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_core.py",
+      "moduleName": "test_core.py",
+      "exports": [
+        "check",
+        "FakeWS",
+        "send",
+        "remote_address"
+      ],
+      "exportLines": {
+        "check": 14,
+        "FakeWS": 224,
+        "send": 227,
+        "remote_address": 229
+      },
+      "exportRanges": {
+        "check": {
+          "startLine": 14,
+          "endLine": 21
+        },
+        "FakeWS": {
+          "startLine": 224,
+          "endLine": 231
+        },
+        "send": {
+          "startLine": 227,
+          "endLine": 228
+        },
+        "remote_address": {
+          "startLine": 229,
+          "endLine": 231
+        }
+      },
+      "imports": [
+        "sys",
+        "time",
+        "game",
+        "server",
+        "asyncio"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T13:29:27.766Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "test_core.py",
+        "routes": [],
+        "dataOperations": [
+          {
+            "operation": "write",
+            "access": "sql",
+            "line": 5,
+            "evidence": "sys.path.insert(0, \".\")"
+          },
+          {
+            "operation": "delete",
+            "access": "unknown",
+            "line": 240,
+            "evidence": "# Test 28: Room add/remove player"
+          }
+        ],
+        "security": [],
+        "conventions": [],
+        "findings": [
+          {
+            "code": "multiple_writes_without_detected_transaction",
+            "severity": "low",
+            "message": "Multiple write/delete operations were detected without a transaction fact.",
+            "line": 5
+          }
+        ]
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/test_broadcast.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_broadcast.py",
+      "moduleName": "test_broadcast.py",
+      "exports": [
+        "FakeWS",
+        "send",
+        "close",
+        "closed",
+        "test"
+      ],
+      "exportLines": {
+        "FakeWS": 6,
+        "send": 11,
+        "close": 14,
+        "closed": 17,
+        "test": 22
+      },
+      "exportRanges": {
+        "FakeWS": {
+          "startLine": 6,
+          "endLine": 19
+        },
+        "send": {
+          "startLine": 11,
+          "endLine": 12
+        },
+        "close": {
+          "startLine": 14,
+          "endLine": 15
+        },
+        "closed": {
+          "startLine": 17,
+          "endLine": 19
+        },
+        "test": {
+          "startLine": 22,
+          "endLine": 62
+        }
+      },
+      "imports": [
+        "asyncio",
+        "server"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T13:35:59.926Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "test_broadcast.py",
+        "routes": [],
+        "dataOperations": [
+          {
+            "operation": "delete",
+            "access": "unknown",
+            "line": 56,
+            "evidence": "# Test remove player"
+          }
+        ],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/test_integration.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_integration.py",
+      "moduleName": "test_integration.py",
+      "exports": [
+        "FakeWS",
+        "send",
+        "close",
+        "closed",
+        "test_game_flow"
+      ],
+      "exportLines": {
+        "FakeWS": 10,
+        "send": 17,
+        "close": 20,
+        "closed": 23,
+        "test_game_flow": 28
+      },
+      "exportRanges": {
+        "FakeWS": {
+          "startLine": 10,
+          "endLine": 25
+        },
+        "send": {
+          "startLine": 17,
+          "endLine": 18
+        },
+        "close": {
+          "startLine": 20,
+          "endLine": 21
+        },
+        "closed": {
+          "startLine": 23,
+          "endLine": 25
+        },
+        "test_game_flow": {
+          "startLine": 28,
+          "endLine": 160
+        }
+      },
+      "imports": [
+        "asyncio",
+        "json",
+        "sys",
+        "server",
+        "server",
+        "server",
+        "server"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T13:40:43.515Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "test_integration.py",
+        "routes": [],
+        "dataOperations": [
+          {
+            "operation": "write",
+            "access": "sql",
+            "line": 7,
+            "evidence": "sys.path.insert(0, \".\")"
+          },
+          {
+            "operation": "write",
+            "access": "sql",
+            "line": 89,
+            "evidence": "check(\"Player 1 gets state update\", len(state1) >= 1)"
+          }
+        ],
+        "security": [],
+        "conventions": [],
+        "findings": [
+          {
+            "code": "multiple_writes_without_detected_transaction",
+            "severity": "low",
+            "message": "Multiple write/delete operations were detected without a transaction fact.",
+            "line": 7
+          }
+        ]
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/test_ws.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_ws.py",
+      "moduleName": "test_ws.py",
+      "exports": [
+        "test_flow"
+      ],
+      "exportLines": {
+        "test_flow": 6
+      },
+      "exportRanges": {
+        "test_flow": {
+          "startLine": 6,
+          "endLine": 98
+        }
+      },
+      "imports": [
+        "asyncio",
+        "json",
+        "websockets",
+        "traceback"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T14:14:00.885Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "test_ws.py",
+        "routes": [],
+        "dataOperations": [
+          {
+            "operation": "write",
+            "access": "sql",
+            "line": 53,
+            "evidence": "print(f\"PASS: State update received after drop (score={msgs1[0].get('score','?')})\")"
+          }
+        ],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/check_ws.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_ws.py",
+      "moduleName": "check_ws.py",
+      "exports": [],
+      "imports": [
+        "inspect",
+        "websockets",
+        "websockets.server",
+        "typing"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T14:30:42.916Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "check_ws.py",
+        "routes": [],
+        "dataOperations": [],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/check_ws2.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_ws2.py",
+      "moduleName": "check_ws2.py",
+      "exports": [],
+      "imports": [
+        "websockets.server",
+        "inspect",
+        "websockets.http",
+        "inspect"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T14:31:21.675Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "check_ws2.py",
+        "routes": [],
+        "dataOperations": [
+          {
+            "operation": "write",
+            "access": "unknown",
+            "line": 16,
+            "evidence": "# Check how to create a simple response"
+          }
+        ],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/check_ws3.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_ws3.py",
+      "moduleName": "check_ws3.py",
+      "exports": [],
+      "imports": [
+        "websockets",
+        "websockets.server",
+        "typing",
+        "inspect"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T14:31:30.515Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "check_ws3.py",
+        "routes": [],
+        "dataOperations": [],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/check_ws4.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_ws4.py",
+      "moduleName": "check_ws4.py",
+      "exports": [],
+      "imports": [
+        "inspect",
+        "websockets",
+        "websockets.http11"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T14:31:39.295Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "check_ws4.py",
+        "routes": [],
+        "dataOperations": [],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/check_ws5.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_ws5.py",
+      "moduleName": "check_ws5.py",
+      "exports": [],
+      "imports": [
+        "websockets.server"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T14:34:11.291Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "check_ws5.py",
+        "routes": [],
+        "dataOperations": [],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/check_headers.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_headers.py",
+      "moduleName": "check_headers.py",
+      "exports": [],
+      "imports": [
+        "websockets"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T14:38:37.823Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "check_headers.py",
+        "routes": [],
+        "dataOperations": [],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/check_headers2.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_headers2.py",
+      "moduleName": "check_headers2.py",
+      "exports": [],
+      "imports": [
+        "websockets"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T14:39:15.208Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "check_headers2.py",
+        "routes": [],
+        "dataOperations": [],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
+    },
+    "C:/Users/user/Documents/william-tetris-game/server.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\server.py",
+      "moduleName": "server.py",
+      "exports": [
+        "PlayerConnection",
+        "Room",
+        "is_full",
+        "is_empty",
+        "add_player",
+        "remove_player",
+        "get_opponent_id",
+        "get_player",
+        "broadcast",
+        "send_to",
+        "RoomManager",
+        "create_room",
+        "get_room",
+        "remove_room",
+        "join_room",
+        "cleanup_empty_rooms",
+        "handle_message",
+        "start_game",
+        "game_loop",
+        "process_input",
+        "send_game_state",
+        "check_game_over",
+        "reset_room",
+        "heartbeat_loop",
+        "handle_connection",
+        "http_health_check",
+        "http_serve_favicon",
+        "main"
+      ],
+      "exportLines": {
+        "PlayerConnection": 39,
+        "Room": 53,
+        "is_full": 65,
+        "is_empty": 69,
+        "add_player": 73,
+        "remove_player": 87,
+        "get_opponent_id": 93,
+        "get_player": 100,
+        "broadcast": 103,
+        "send_to": 117,
+        "RoomManager": 127,
+        "create_room": 134,
+        "get_room": 146,
+        "remove_room": 150,
+        "join_room": 158,
+        "cleanup_empty_rooms": 173,
+        "handle_message": 185,
+        "start_game": 243,
+        "game_loop": 270,
+        "process_input": 338,
+        "send_game_state": 376,
+        "check_game_over": 438,
+        "reset_room": 479,
+        "heartbeat_loop": 499,
+        "handle_connection": 512,
+        "http_health_check": 640,
+        "http_serve_favicon": 651,
+        "main": 659
+      },
+      "exportRanges": {
+        "PlayerConnection": {
+          "startLine": 39,
+          "endLine": 50
+        },
+        "Room": {
+          "startLine": 53,
+          "endLine": 121
+        },
+        "is_full": {
+          "startLine": 65,
+          "endLine": 67
+        },
+        "is_empty": {
+          "startLine": 69,
+          "endLine": 71
+        },
+        "add_player": {
+          "startLine": 73,
+          "endLine": 85
+        },
+        "remove_player": {
+          "startLine": 87,
+          "endLine": 91
+        },
+        "get_opponent_id": {
+          "startLine": 93,
+          "endLine": 98
+        },
+        "get_player": {
+          "startLine": 100,
+          "endLine": 101
+        },
+        "broadcast": {
+          "startLine": 103,
+          "endLine": 108
+        },
+        "send_to": {
+          "startLine": 117,
+          "endLine": 121
+        },
+        "RoomManager": {
+          "startLine": 127,
+          "endLine": 179
+        },
+        "create_room": {
+          "startLine": 134,
+          "endLine": 144
+        },
+        "get_room": {
+          "startLine": 146,
+          "endLine": 148
+        },
+        "remove_room": {
+          "startLine": 150,
+          "endLine": 156
+        },
+        "join_room": {
+          "startLine": 158,
+          "endLine": 166
+        },
+        "cleanup_empty_rooms": {
+          "startLine": 173,
+          "endLine": 179
+        },
+        "handle_message": {
+          "startLine": 185,
+          "endLine": 237
+        },
+        "start_game": {
+          "startLine": 243,
+          "endLine": 267
+        },
+        "game_loop": {
+          "startLine": 270,
+          "endLine": 320
+        },
+        "process_input": {
+          "startLine": 338,
+          "endLine": 358
+        },
+        "send_game_state": {
+          "startLine": 376,
+          "endLine": 435
+        },
+        "check_game_over": {
+          "startLine": 438,
+          "endLine": 476
+        },
+        "reset_room": {
+          "startLine": 479,
+          "endLine": 493
+        },
+        "heartbeat_loop": {
+          "startLine": 499,
+          "endLine": 509
+        },
+        "handle_connection": {
+          "startLine": 512,
+          "endLine": 634
+        },
+        "http_health_check": {
+          "startLine": 640,
+          "endLine": 648
+        },
+        "http_serve_favicon": {
+          "startLine": 651,
+          "endLine": 656
+        },
+        "main": {
+          "startLine": 659,
+          "endLine": 688
+        }
+      },
+      "imports": [
+        "asyncio",
+        "json",
+        "logging",
+        "random",
+        "string",
+        "time",
+        "typing",
+        "websockets",
+        "websockets",
+        "game"
+      ],
+      "language": "python",
+      "mtime": "2026-07-28T14:39:26.279Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "server.py",
+        "routes": [],
+        "dataOperations": [
+          {
+            "operation": "write",
+            "access": "sql",
+            "line": 306,
+            "evidence": "# Send state update periodically"
+          },
+          {
+            "operation": "write",
+            "access": "unknown",
+            "line": 561,
+            "evidence": "json.dumps({\"type\": \"error\", \"message\": \"Failed to create/join room\"})"
+          }
+        ],
+        "security": [],
+        "conventions": [],
+        "findings": [
+          {
+            "code": "multiple_writes_without_detected_transaction",
+            "severity": "low",
+            "message": "Multiple write/delete operations were detected without a transaction fact.",
+            "line": 306
+          }
+        ]
+      }
+    }
+  },
+  "edges": [],
+  "metadata": {
+    "generatedAt": "2026-07-28T14:39:26.520Z",
+    "generator": "repo-graph",
+    "nodeCount": 15,
+    "edgeCount": 0
+  },
+  "diagnostics": {
+    "extractionFailures": [],
+    "unresolvedImports": [],
+    "oversizedFiles": [],
+    "unsupportedFiles": [],
+    "binaryFiles": [],
+    "unreadableFiles": [],
+    "lowConfidenceEdgeCount": 0
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "version": 1,
+  "cursor": 46,
+  "pairs": {
+    "async\u0000broadcast": {
+      "a": "async",
+      "b": "broadcast",
+      "count": 1,
+      "seq": 1
+    },
+    "broadcast\u0000websocket": {
+      "a": "broadcast",
+      "b": "websocket",
+      "count": 1,
+      "seq": 2
+    },
+    "broadcast\u0000coder": {
+      "a": "broadcast",
+      "b": "coder",
+      "count": 1,
+      "seq": 3
+    },
+    "async\u0000websocket": {
+      "a": "async",
+      "b": "websocket",
+      "count": 1,
+      "seq": 4
+    },
+    "async\u0000coder": {
+      "a": "async",
+      "b": "coder",
+      "count": 1,
+      "seq": 5
+    },
+    "coder\u0000websocket": {
+      "a": "coder",
+      "b": "websocket",
+      "count": 1,
+      "seq": 6
+    },
+    "gravity\u0000speed": {
+      "a": "gravity",
+      "b": "speed",
+      "count": 1,
+      "seq": 7
+    },
+    "gravity\u0000tick": {
+      "a": "gravity",
+      "b": "tick",
+      "count": 1,
+      "seq": 8
+    },
+    "game loop\u0000gravity": {
+      "a": "game loop",
+      "b": "gravity",
+      "count": 1,
+      "seq": 9
+    },
+    "coder\u0000gravity": {
+      "a": "coder",
+      "b": "gravity",
+      "count": 1,
+      "seq": 10
+    },
+    "speed\u0000tick": {
+      "a": "speed",
+      "b": "tick",
+      "count": 1,
+      "seq": 11
+    },
+    "game loop\u0000speed": {
+      "a": "game loop",
+      "b": "speed",
+      "count": 1,
+      "seq": 12
+    },
+    "coder\u0000speed": {
+      "a": "coder",
+      "b": "speed",
+      "count": 1,
+      "seq": 13
+    },
+    "game loop\u0000tick": {
+      "a": "game loop",
+      "b": "tick",
+      "count": 1,
+      "seq": 14
+    },
+    "coder\u0000tick": {
+      "a": "coder",
+      "b": "tick",
+      "count": 1,
+      "seq": 15
+    },
+    "coder\u0000game loop": {
+      "a": "coder",
+      "b": "game loop",
+      "count": 1,
+      "seq": 16
+    },
+    "hold\u0000swap": {
+      "a": "hold",
+      "b": "swap",
+      "count": 1,
+      "seq": 17
+    },
+    "board state\u0000hold": {
+      "a": "board state",
+      "b": "hold",
+      "count": 1,
+      "seq": 18
+    },
+    "atomic\u0000hold": {
+      "a": "atomic",
+      "b": "hold",
+      "count": 1,
+      "seq": 19
+    },
+    "coder\u0000hold": {
+      "a": "coder",
+      "b": "hold",
+      "count": 1,
+      "seq": 20
+    },
+    "board state\u0000swap": {
+      "a": "board state",
+      "b": "swap",
+      "count": 1,
+      "seq": 21
+    },
+    "atomic\u0000swap": {
+      "a": "atomic",
+      "b": "swap",
+      "count": 1,
+      "seq": 22
+    },
+    "coder\u0000swap": {
+      "a": "coder",
+      "b": "swap",
+      "count": 1,
+      "seq": 23
+    },
+    "atomic\u0000board state": {
+      "a": "atomic",
+      "b": "board state",
+      "count": 1,
+      "seq": 24
+    },
+    "board state\u0000coder": {
+      "a": "board state",
+      "b": "coder",
+      "count": 1,
+      "seq": 25
+    },
+    "atomic\u0000coder": {
+      "a": "atomic",
+      "b": "coder",
+      "count": 1,
+      "seq": 26
+    },
+    "game over\u0000winner": {
+      "a": "game over",
+      "b": "winner",
+      "count": 1,
+      "seq": 27
+    },
+    "game over\u0000loser": {
+      "a": "game over",
+      "b": "loser",
+      "count": 1,
+      "seq": 28
+    },
+    "game over\u0000ternary": {
+      "a": "game over",
+      "b": "ternary",
+      "count": 1,
+      "seq": 29
+    },
+    "coder\u0000game over": {
+      "a": "coder",
+      "b": "game over",
+      "count": 1,
+      "seq": 30
+    },
+    "loser\u0000winner": {
+      "a": "loser",
+      "b": "winner",
+      "count": 1,
+      "seq": 31
+    },
+    "ternary\u0000winner": {
+      "a": "ternary",
+      "b": "winner",
+      "count": 1,
+      "seq": 32
+    },
+    "coder\u0000winner": {
+      "a": "coder",
+      "b": "winner",
+      "count": 1,
+      "seq": 33
+    },
+    "loser\u0000ternary": {
+      "a": "loser",
+      "b": "ternary",
+      "count": 1,
+      "seq": 34
+    },
+    "coder\u0000loser": {
+      "a": "coder",
+      "b": "loser",
+      "count": 1,
+      "seq": 35
+    },
+    "coder\u0000ternary": {
+      "a": "coder",
+      "b": "ternary",
+      "count": 1,
+      "seq": 36
+    },
+    "disconnect\u0000remove": {
+      "a": "disconnect",
+      "b": "remove",
+      "count": 1,
+      "seq": 37
+    },
+    "disconnect\u0000notify": {
+      "a": "disconnect",
+      "b": "notify",
+      "count": 1,
+      "seq": 38
+    },
+    "disconnect\u0000opponent": {
+      "a": "disconnect",
+      "b": "opponent",
+      "count": 1,
+      "seq": 39
+    },
+    "coder\u0000disconnect": {
+      "a": "coder",
+      "b": "disconnect",
+      "count": 1,
+      "seq": 40
+    },
+    "notify\u0000remove": {
+      "a": "notify",
+      "b": "remove",
+      "count": 1,
+      "seq": 41
+    },
+    "opponent\u0000remove": {
+      "a": "opponent",
+      "b": "remove",
+      "count": 1,
+      "seq": 42
+    },
+    "coder\u0000remove": {
+      "a": "coder",
+      "b": "remove",
+      "count": 1,
+      "seq": 43
+    },
+    "notify\u0000opponent": {
+      "a": "notify",
+      "b": "opponent",
+      "count": 1,
+      "seq": 44
+    },
+    "coder\u0000notify": {
+      "a": "coder",
+      "b": "notify",
+      "count": 1,
+      "seq": 45
+    },
+    "coder\u0000opponent": {
+      "a": "coder",
+      "b": "opponent",
+      "count": 1,
+      "seq": 46
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "2fb60f34-54c0-49ca-97f4-e22cb6e8216c",
+  "receipt_type": "approved",
+  "verdict": "approved",
+  "reviewer": {
+    "agent": "reviewer",
+    "session_id": "ses_0572fb5b5ffeOyTGhdgv1g7Ip3"
+  },
+  "reviewed_at": "2026-07-28T13:47:30.820Z",
+  "scope_fingerprint": {
+    "hash": "1a2b7d855c11c568fe13a23dfccc25993a0259c7f6b7de0ae230e981ece6f8ca",
+    "scope_description": "reviewer-task-prompt",
+    "content_length": 1954
+  },
+  "checked_aspects": [
+    "code-review"
+  ],
+  "validated_claims": [
+    "VERDICT: APPROVED (risk MEDIUM)"
+  ],
+  "caveats": [
+    "**HIGH | server.py:604-606** — Opponent notification on disconnect is always a no-op. After `room.remove_player(player_id)` on line 602, the code computes `opponent_id = room.get_opponent_id(1 if player_id == 2 else 2)`. `get_opponent_id(pid)` returns the first player whose ID ≠ `pid`. Since the remaining player has the OPPOSITE ID of the hardcoded argument, `get_opponent_id` iterates, finds the remaining player whose ID equals the argument, skips it, and returns `None`. Result: the remaining pl",
+    "**LOW | server.py:35** — `STATE_UPDATE_INTERVAL = 0.1` is defined but never referenced. The actual update cadence is driven by `asyncio.sleep(0.05)` on line 315 (~20 Hz, exceeding the ≥10 Hz requirement). Dead constant."
+  ]
+}
