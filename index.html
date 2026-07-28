@@ -450,11 +450,20 @@
 
 <script>
 // ── Constants ──────────────────────────────────────────────────────────────────
-// Auto-detect WebSocket protocol (wss:// for HTTPS pages, ws:// for HTTP)
-// Works with ngrok (HTTPS → wss), localhost (HTTP → ws), and Docker
-const WS_PORT = location.port === '8765' || location.port === '' ? '8765' : location.port;
+// Auto-detect WebSocket URL:
+// - localhost / 127.0.0.1 → ws://hostname:8765  (Python server port)
+// - ngrok / remote HTTPS  → wss://hostname      (same origin, no port suffix)
+// - other explicit ports  → same port as page
 const WS_PROTO = location.protocol === 'https:' ? 'wss' : 'ws';
-const WS_URL = `${WS_PROTO}://${location.hostname}:${WS_PORT}`;
+const WS_HOST = location.hostname;
+const IS_LOCAL = WS_HOST === 'localhost' || WS_HOST === '127.0.0.1';
+let WS_PORT = '';
+if (IS_LOCAL) {
+  WS_PORT = ':8765';
+} else if (location.port) {
+  WS_PORT = ':' + location.port;
+}
+const WS_URL = `${WS_PROTO}://${WS_HOST}${WS_PORT}`;
 
 const BOARD_COLS = 10, BOARD_ROWS = 20;
 const CELL_SIZE = 20;       // pixels per cell on main board
