@@ -80,6 +80,11 @@ docker compose up --build
 
 Open `http://localhost:8765` and start a game.
 
+## 成果發表
+
+Loop Engineering × Multi-Agent 開發歷程紀錄：  
+👉 **[showcase/index.html](showcase/index.html)** — 一頁式 PWA 報告（遊戲介紹、Loop 執行歷程、Agent 分工、反思）
+
 ## Game Features
 
 - 7 standard Tetris pieces (I, O, T, S, Z, J, L) with SRS rotation + wall kicks
@@ -106,7 +111,11 @@ Open `http://localhost:8765` and start a game.
 ├── manifest.json     # PWA manifest (installable on mobile)
 ├── nginx.conf        # nginx config (for docker compose frontend)
 ├── README.md         # This file
-└── progress.md       # Loop engineering log
+├── progress.md       # Loop engineering log
+└── showcase/         # 成果發表頁面（PWA 一頁式報告）
+    ├── index.html
+    ├── manifest.json
+    └── sw.js
 ```
 
 ## Testing

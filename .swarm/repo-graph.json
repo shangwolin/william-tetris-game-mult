@@ -885,13 +885,45 @@
           }
         ]
       }
+    },
+    "C:/Users/user/Documents/william-tetris-game/showcase/sw.js": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\showcase\\sw.js",
+      "moduleName": "showcase/sw.js",
+      "exports": [],
+      "imports": [],
+      "language": "javascript",
+      "mtime": "2026-07-28T15:44:20.478Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "showcase",
+        "routes": [],
+        "dataOperations": [
+          {
+            "operation": "read",
+            "access": "network",
+            "line": 14,
+            "evidence": "self.addEventListener('fetch', (e) => {"
+          },
+          {
+            "operation": "read",
+            "access": "network",
+            "line": 16,
+            "evidence": "caches.match(e.request).then(r => r || fetch(e.request))"
+          }
+        ],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
     }
   },
   "edges": [],
   "metadata": {
-    "generatedAt": "2026-07-28T14:39:26.520Z",
+    "generatedAt": "2026-07-28T15:44:20.631Z",
     "generator": "repo-graph",
-    "nodeCount": 15,
+    "nodeCount": 16,
     "edgeCount": 0
   },
   "diagnostics": {

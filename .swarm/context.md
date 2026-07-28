@@ -16,16 +16,16 @@ confirmed: true
 
 | Tool | Calls | Success | Failed | Avg Duration |
 |------|-------|---------|--------|--------------|
-| read | 101 | 101 | 0 | 16ms |
-| edit | 81 | 81 | 0 | 15ms |
-| bash | 45 | 45 | 0 | 1849ms |
+| read | 106 | 106 | 0 | 17ms |
+| edit | 83 | 83 | 0 | 15ms |
+| bash | 55 | 55 | 0 | 1752ms |
 | grep | 39 | 39 | 0 | 656ms |
+| write | 27 | 27 | 0 | 6ms |
 | glob | 26 | 26 | 0 | 55ms |
-| write | 25 | 25 | 0 | 6ms |
 | update_task_status | 22 | 22 | 0 | 116ms |
 | task | 14 | 14 | 0 | 145350ms |
+| declare_scope | 9 | 9 | 0 | 19ms |
 | todowrite | 9 | 9 | 0 | 3ms |
-| declare_scope | 8 | 8 | 0 | 17ms |
 | get_approved_plan | 4 | 4 | 0 | 2ms |
 | syntax_check | 4 | 4 | 0 | 60ms |
 | pre_check_batch | 4 | 4 | 0 | 85ms |

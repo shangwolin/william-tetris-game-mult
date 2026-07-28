@@ -1,0 +1,17 @@
+﻿{
+  "name": "Tetris Battle — 成果發表",
+  "short_name": "TetrisShowcase",
+  "description": "Tetris Battle 雙人連線對戰 — Loop Engineering 與 Multi-Agent 設計成果發表",
+  "start_url": "/showcase/",
+  "display": "standalone",
+  "background_color": "#0a0a1a",
+  "theme_color": "#1a1a3e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' fill='%2312122a'/%3E%3Crect x='16' y='16' width='70' height='70' fill='%2300f0f0'/%3E%3Crect x='106' y='16' width='70' height='70' fill='%23f0f000'/%3E%3Crect x='16' y='106' width='70' height='70' fill='%23a000f0'/%3E%3Crect x='106' y='106' width='70' height='70' fill='%2300f000'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}
