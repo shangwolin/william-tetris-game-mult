@@ -450,10 +450,11 @@
 
 <script>
 // ── Constants ──────────────────────────────────────────────────────────────────
-// When served from Python backend (same port), use ws://hostname/ws.
-// When opened directly in dev, the server runs on port 8765.
+// Auto-detect WebSocket protocol (wss:// for HTTPS pages, ws:// for HTTP)
+// Works with ngrok (HTTPS → wss), localhost (HTTP → ws), and Docker
 const WS_PORT = location.port === '8765' || location.port === '' ? '8765' : location.port;
-const WS_URL = `ws://${location.hostname}:${WS_PORT}`;
+const WS_PROTO = location.protocol === 'https:' ? 'wss' : 'ws';
+const WS_URL = `${WS_PROTO}://${location.hostname}:${WS_PORT}`;
 
 const BOARD_COLS = 10, BOARD_ROWS = 20;
 const CELL_SIZE = 20;       // pixels per cell on main board

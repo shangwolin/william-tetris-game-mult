@@ -42,6 +42,20 @@ python server.py
 
 The server serves `index.html` directly — open your browser to `http://localhost:8765` to play.
 
+### Internet Play (ngrok)
+
+```bash
+# Start server
+python server.py
+
+# In another terminal: create public tunnel
+ngrok http 8765
+```
+
+Give your friend the `https://xxxx.ngrok-free.app` URL. The client auto-detects HTTPS and uses `wss://` for WebSocket — no config needed.
+
+### Controls
+
 ### Controls
 | Key | Action |
 |-----|--------|
@@ -78,16 +92,21 @@ Open `http://localhost:8765` and start a game.
 - Heartbeat timeout (5s interval, 2-miss disconnect)
 - Auto-reconnect with exponential backoff (up to 30s, 10 attempts)
 - Touch controls for mobile devices
+- PWA support (manifest.json — installable on mobile home screen)
+- Auto-detect wss:// vs ws:// (works with ngrok, localhost, and VPS)
 
 ## Project Structure
 
 ```
-├── server.py      # WebSocket server (room mgmt, game loop, state sync)
-├── game.py        # Tetris game logic (Board class, SRS, scoring)
-├── index.html     # Frontend (Canvas, DAS/ARR keyboard, touch controls)
-├── Dockerfile     # Container image
-├── nginx.conf     # nginx config (for docker-compose frontend)
-└── README.md      # This file
+├── server.py         # WebSocket server (room mgmt, game loop, state sync)
+├── game.py           # Tetris game logic (Board class, SRS, scoring)
+├── index.html        # Frontend (Canvas, DAS/ARR keyboard, touch controls, wss auto-detect)
+├── Dockerfile        # Container image
+├── docker-compose.yml # One-command deployment
+├── manifest.json     # PWA manifest (installable on mobile)
+├── nginx.conf        # nginx config (for docker compose frontend)
+├── README.md         # This file
+└── progress.md       # Loop engineering log
 ```
 
 ## Testing

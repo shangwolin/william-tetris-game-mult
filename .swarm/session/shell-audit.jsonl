@@ -70,3 +70,17 @@
 {"type":"scope_violation","ts":"2026-07-28T15:15:04.363Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","path":"detection","declaredScope":"","resolvedScope":"","action":"bash"}
 {"ts":"2026-07-28T15:15:07.899Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git init"}
 {"ts":"2026-07-28T15:15:40.579Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git add -A"}
+{"ts":"2026-07-28T15:15:45.283Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git commit -m \"Initial commit: Tetris Battle - two-player online WebSocket game\""}
+{"ts":"2026-07-28T15:15:50.015Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git remote add origin https://github.com/shangwolin/william-tetris-game-mult.git"}
+{"ts":"2026-07-28T15:15:53.909Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git push -u origin master"}
+{"ts":"2026-07-28T15:18:19.706Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"Get-Command ngrok -ErrorAction SilentlyContinue; if (-not $?) { Write-Output \"ngrok_not_found\" }"}
+{"type":"scope_violation","ts":"2026-07-28T15:18:19.711Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","path":"detection","declaredScope":"","resolvedScope":"","action":"bash"}
+{"ts":"2026-07-28T15:18:24.075Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"where ngrok 2>&1"}
+{"ts":"2026-07-28T15:18:29.151Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"winget install ngrok 2>&1"}
+{"ts":"2026-07-28T15:18:43.933Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"winget install --id Ngrok.Ngrok 2>&1"}
+{"ts":"2026-07-28T15:19:13.259Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"$ngrok = Get-ChildItem -Recurse -Filter \"ngrok.exe\" -Path \"$env:LOCALAPPDATA\\Ngrok\" -ErrorAction SilentlyContinue; if ($ngrok) { $env:PATH = \"$($ngrok.Directory.FullName);$env:PATH\"; & ngrok version } else { Write-Output \"not_found\" }"}
+{"type":"scope_violation","ts":"2026-07-28T15:19:13.263Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","path":"detection","declaredScope":"","resolvedScope":"","action":"bash"}
+{"type":"scope_violation","ts":"2026-07-28T15:19:23.448Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","path":"detection","declaredScope":"","resolvedScope":"","action":"bash"}
+{"ts":"2026-07-28T15:19:23.445Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"$env:PATH = [System.Environment]::GetEnvironmentVariable('PATH','Machine') + \";\" + [System.Environment]::GetEnvironmentVariable('PATH','User'); ngrok version"}
+{"ts":"2026-07-28T15:19:27.291Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"ngrok version 2>&1"}
+{"ts":"2026-07-28T15:21:22.724Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git add -A"}
