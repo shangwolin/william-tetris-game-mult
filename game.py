@@ -335,6 +335,9 @@ class Board:
         if self.current_piece is None:
             return False
         if self.move(0, 1):
+            # Piece moved down, no lines cleared this tick.
+            # MUST reset _last_lines_cleared to prevent stale re-sends.
+            self._last_lines_cleared = 0
             return True
         else:
             # Piece can't move down — lock it
