@@ -7,47 +7,33 @@
 <link rel="manifest" href="manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Tetris Battle — Loop Engineering 成果發表</title>
+<title>Tetris Battle — HW3 Loop Engineering × Multi-Agent 成果發表</title>
 <style>
   :root {
-    --bg: #0a0a1a;
-    --surface: #12122a;
-    --surface2: #1a1a3e;
-    --accent: #7c4dff;
-    --accent2: #00e5ff;
-    --text: #e0e0e0;
-    --text2: #a0a0b8;
-    --green: #00e676;
-    --red: #ff5252;
-    --orange: #ffab40;
+    --bg: #0a0a1a; --surface: #12122a; --surface2: #1a1a3e;
+    --accent: #7c4dff; --accent2: #00e5ff;
+    --text: #e0e0e0; --text2: #a0a0b8;
+    --green: #00e676; --red: #ff5252; --orange: #ffab40;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
+    background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden;
   }
-
-  /* ── Nav ── */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
     background: rgba(10,10,26,0.9); backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(124,77,255,0.2);
-    padding: 0 1rem;
-    display: flex; align-items: center;
+    padding: 0 1rem; display: flex; align-items: center;
     height: 56px; gap: 0.5rem; overflow-x: auto;
   }
   nav a {
     color: var(--text2); text-decoration: none; font-size: 0.85rem;
-    padding: 0.4rem 0.8rem; border-radius: 6px; white-space: nowrap;
-    transition: all 0.2s;
+    padding: 0.4rem 0.8rem; border-radius: 6px; white-space: nowrap; transition: all 0.2s;
   }
   nav a:hover, nav a.active { color: #fff; background: var(--surface2); }
   .nav-brand { color: var(--accent2); font-weight: 700; margin-right: auto; font-size: 0.95rem; }
 
-  /* ── Sections ── */
   section { padding: 80px 1rem 60px; max-width: 960px; margin: 0 auto; }
   section + section { border-top: 1px solid rgba(124,77,255,0.15); }
   h1 { font-size: 2.5rem; background: linear-gradient(135deg,var(--accent2),var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
@@ -60,7 +46,6 @@
   ul, ol { margin: 0.5rem 0 1rem 1.5rem; color: var(--text2); }
   li { margin-bottom: 0.4rem; }
 
-  /* ── Hero ── */
   .hero {
     min-height: 100vh; display: flex; flex-direction: column;
     justify-content: center; align-items: center; text-align: center;
@@ -68,7 +53,7 @@
     background: radial-gradient(ellipse at 50% 0%, #1a1a3e 0%, transparent 60%);
   }
   .hero h1 { font-size: 3rem; }
-  .hero p { font-size: 1.15rem; max-width: 600px; }
+  .hero p { font-size: 1.15rem; max-width: 640px; }
   .hero .tags { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin: 1.5rem 0; }
   .hero .tags span {
     background: var(--surface2); color: var(--text2); padding: 0.3rem 0.8rem;
@@ -83,74 +68,43 @@
   .btn-outline { border: 1px solid var(--accent); color: var(--accent); background: transparent; }
   .btn-outline:hover { background: rgba(124,77,255,0.1); }
 
-  /* ── Cards / Grid ── */
-  .card {
-    background: var(--surface); border-radius: 12px; padding: 1.5rem;
-    margin: 1rem 0; border: 1px solid rgba(124,77,255,0.1);
-  }
+  .card { background: var(--surface); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; border: 1px solid rgba(124,77,255,0.1); }
   .card:hover { border-color: rgba(124,77,255,0.3); }
   .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+  .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
 
-  /* ── Timeline ── */
   .timeline { position: relative; padding-left: 2rem; }
-  .timeline::before {
-    content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
-    width: 2px; background: linear-gradient(to bottom, var(--accent2), var(--accent));
-  }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent2), var(--accent)); }
   .tl-item { position: relative; margin-bottom: 1.5rem; }
-  .tl-item::before {
-    content: ''; position: absolute; left: -2rem; top: 0.5rem;
-    width: 14px; height: 14px; border-radius: 50%;
-    background: var(--accent); border: 2px solid var(--bg);
-  }
+  .tl-item::before { content: ''; position: absolute; left: -2rem; top: 0.5rem; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
   .tl-item.done::before { background: var(--green); }
   .tl-item h4 { color: #fff; }
   .tl-item .meta { font-size: 0.82rem; color: var(--text2); margin-bottom: 0.3rem; }
-  .tl-item .summary { font-size: 0.92rem; color: var(--text2); }
 
-  /* ── Architecture diagram ── */
-  .arch-grid {
-    display: flex; flex-direction: column; gap: 0.3rem;
-    font-family: 'Consolas','Courier New',monospace; font-size: 0.82rem;
-  }
-  .arch-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-  .arch-box {
-    background: var(--surface2); border: 1px solid rgba(124,77,255,0.25);
-    border-radius: 6px; padding: 0.3rem 0.6rem; white-space: nowrap;
-  }
+  .arch-box { background: var(--surface2); border: 1px solid rgba(124,77,255,0.25); border-radius: 6px; padding: 0.3rem 0.6rem; white-space: nowrap; font-family: 'Consolas','Courier New',monospace; font-size: 0.82rem; }
   .arch-box.primary { border-color: var(--accent2); }
   .arch-arrow { color: var(--text2); font-size: 0.8rem; }
-  .arch-label { color: var(--text2); font-size: 0.75rem; }
+  .arch-label { color: var(--text2); font-size: 0.75rem; display: inline; }
 
-  /* ── Table ── */
   table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
   th, td { padding: 0.5rem 0.8rem; text-align: left; border-bottom: 1px solid rgba(124,77,255,0.1); }
   th { color: var(--accent2); font-weight: 600; }
   td { color: var(--text2); }
 
-  /* ── Status badges ── */
-  .badge { display: inline-block; padding: 0.15em 0.5em; border-radius: 10px; font-size: 0.78rem; }
-  .badge-done { background: rgba(0,230,118,0.15); color: var(--green); }
-  .badge-wip { background: rgba(255,171,64,0.15); color: var(--orange); }
-  .badge-skip { background: rgba(255,82,82,0.15); color: var(--red); }
-
-  /* ── Mock log ── */
-  .log-block {
-    background: #050510; border-radius: 8px; padding: 1rem;
-    font-family: 'Consolas','Courier New',monospace; font-size: 0.78rem;
-    line-height: 1.5; overflow-x: auto; margin: 1rem 0;
-    border: 1px solid rgba(124,77,255,0.1);
-  }
+  .log-block { background: #050510; border-radius: 8px; padding: 1rem; font-family: 'Consolas','Courier New',monospace; font-size: 0.78rem; line-height: 1.5; overflow-x: auto; margin: 1rem 0; border: 1px solid rgba(124,77,255,0.1); }
   .log-block .ts { color: #666; }
   .log-block .info { color: var(--accent2); }
   .log-block .ok { color: var(--green); }
   .log-block .warn { color: var(--orange); }
   .log-block .err { color: var(--red); }
 
-  /* ── Footer ── */
   footer { text-align: center; padding: 2rem; color: #555; font-size: 0.82rem; }
 
-  /* ── Responsive ── */
+  .mapping-row { display: flex; align-items: center; gap: 0.5rem; margin: 0.5rem 0; flex-wrap: wrap; }
+  .mapping-old { background: #2a1a1a; border: 1px solid #522; border-radius: 6px; padding: 0.3rem 0.6rem; }
+  .mapping-new { background: #1a2a1a; border: 1px solid #252; border-radius: 6px; padding: 0.3rem 0.6rem; }
+  .mapping-arrow { color: var(--text2); }
+
   @media (max-width: 640px) {
     h1 { font-size: 1.8rem; }
     .hero h1 { font-size: 2rem; }
@@ -163,24 +117,21 @@
 <nav>
   <span class="nav-brand">⬡ Tetris Battle</span>
   <a href="#intro">介紹</a>
+  <a href="#deploy">部署</a>
   <a href="#loop">Loop Engineering</a>
   <a href="#agents">Multi-Agent</a>
   <a href="#reflection">反思</a>
   <a href="https://github.com/shangwolin/william-tetris-game-mult" target="_blank">GitHub</a>
 </nav>
 
-<!-- ═════════════════ HERO ═════════════════ -->
+<!-- ══════════ HERO ══════════ -->
 <section class="hero" id="top">
   <h1>Tetris Battle</h1>
-  <p>雙人連線對戰俄羅斯方塊 — 從零開始，透過 Loop Engineering 與 Multi-Agent Swarm，在 3 個 sessions 內完成 5 個 Phase、15 個 Tasks 的完整產品</p>
+  <p>HW3 — Loop Engineering × Multi-Agent 協作開發<br>雙人連線對戰俄羅斯方塊</p>
   <div class="tags">
-    <span>Python + asyncio</span>
-    <span>WebSocket</span>
-    <span>Canvas</span>
-    <span>Docker</span>
-    <span>PWA</span>
-    <span>Loop Engineering</span>
-    <span>Multi-Agent Swarm</span>
+    <span>Python + asyncio</span><span>WebSocket</span><span>Canvas</span>
+    <span>Docker + WSL</span><span>PWA</span><span>ngrok</span>
+    <span>Loop Engineering</span><span>Agent Swarm</span>
   </div>
   <div>
     <a class="btn btn-primary" href="https://github.com/shangwolin/william-tetris-game-mult" target="_blank">GitHub Repo</a>
@@ -188,31 +139,28 @@
   </div>
 </section>
 
-<!-- ═════════════════ SECTION 1: 遊戲介紹 ═════════════════ -->
+<!-- ══════════ 1. 遊戲介紹 ══════════ -->
 <section id="intro">
   <h2><span class="num">1</span> 遊戲介紹</h2>
 
   <div class="card">
     <h3>專案簡介</h3>
-    <p><strong>Tetris Battle</strong> 是一款雙人即時連線對戰俄羅斯方塊遊戲。採用 Python WebSocket 後端 + 純前端 Canvas 渲染，不使用任何遊戲引擎或框架。</p>
-    <p>兩人各自在同一個房間內獨立操作自己的版面，消行時會送出垃圾行攻擊對手。遊戲的核心機制包含完整的 SRS 旋轉系統、7-bag 隨機器、Hold 暫存、Hard Drop、計分與加速系統。</p>
+    <p><strong>Tetris Battle</strong> 是一款雙人即時連線對戰俄羅斯方塊遊戲。採用 Python WebSocket 後端 + 純前端 Canvas 渲染，不使用任何遊戲引擎或框架。兩人各自在同一個房間內獨立操作版面，消行送出垃圾行攻擊對手。</p>
+    <p>核心機制：SRS 旋轉系統 + wall kick、7-bag 隨機器、Hold 暫存、Hard Drop、計分（100/300/500/800 × level）、垃圾行攻擊（0/1/2/4 行）、遊戲加速系統。</p>
+    <p>開發方式：透過 <strong>Agent Swarm（多代理人並行協作）</strong>與 <strong>Loop Engineering（自我迴圈驗收）</strong>，在 3 個 sessions 內完成 5 個 Loops、15 個 Tasks。</p>
   </div>
 
   <div class="grid2">
     <div class="card">
-      <h3>如何啟動</h3>
-      <p><strong>本機雙人</strong></p>
+      <h3>快速啟動</h3>
+      <p><strong>本機（Python）</strong></p>
       <code>pip install websockets</code><br>
       <code>python server.py</code>
-      <p style="margin-top:0.5rem">打開 <code>http://localhost:8765</code> 兩個分頁</p>
+      <p>打開 <code>http://localhost:8765</code></p>
       <hr style="border-color:rgba(124,77,255,0.1);margin:0.8rem 0">
-      <p><strong>Docker</strong></p>
+      <p><strong>Docker（一鍵部署）</strong></p>
       <code>docker compose up --build</code>
-      <hr style="border-color:rgba(124,77,255,0.1);margin:0.8rem 0">
-      <p><strong>網際網路連線</strong></p>
-      <code>python server.py</code><br>
-      <code>ngrok http 8765</code>
-      <p style="margin-top:0.5rem">朋友連到 ngrok URL 即可對戰</p>
+      <p>打開 <code>http://localhost:8765</code></p>
     </div>
     <div class="card">
       <h3>操作方式</h3>
@@ -220,24 +168,38 @@
         <tr><th>按鍵</th><th>動作</th></tr>
         <tr><td>← →</td><td>左右移動</td></tr>
         <tr><td>↑</td><td>旋轉</td></tr>
-        <tr><td>↓</td><td>軟降</td></tr>
+        <tr><td>↓</td><td>軟降（DAS 167ms + ARR 33ms）</td></tr>
         <tr><td>Space</td><td>Hard Drop</td></tr>
-        <tr><td>C / Shift</td><td>Hold</td></tr>
+        <tr><td>C / Shift</td><td>Hold 暫存</td></tr>
       </table>
-      <p>DAS 167ms + ARR 33ms / 觸控按鈕支援</p>
+      <p>觸控按鈕支援（手機／平板）</p>
     </div>
   </div>
 
   <div class="card">
     <h3>雙人對戰流程</h3>
-    <ol>
-      <li><strong>Player 1</strong> 按 <strong>Create Room</strong> → 取得房間代碼</li>
-      <li><strong>Player 2</strong> 輸入房間代碼 → 按 <strong>Join</strong></li>
-      <li>雙方按 <strong>Ready</strong> → 遊戲自動開始</li>
-      <li>消行送出垃圾行給對手（1清=0行, 2清=1行, 3清=2行, Tetris=4行）</li>
-      <li>任一方堆到頂 → game over，另一方獲勝</li>
-      <li>按 <strong>再戰一局</strong> 可 rematch</li>
-    </ol>
+    <div class="grid2">
+      <div>
+        <h4>兩台電腦連線步驟</h4>
+        <ol>
+          <li><strong>Host</strong> 啟動伺服器：<code>python server.py</code></li>
+          <li>Host 打開 <code>http://localhost:8765</code> → Create Room</li>
+          <li><strong>區網連線</strong>：Client 連 <code>http://&lt;Host-IP&gt;:8765</code>（Windows 關閉防火牆或開 8765 port）</li>
+          <li><strong>網際網路連線</strong>：Host 執行 <code>ngrok http 8765</code>，Client 連 ngrok URL</li>
+          <li>Client 輸入房間代碼 → Join → 雙方 Ready → 開戰！</li>
+        </ol>
+      </div>
+      <div>
+        <h4>遊戲規則</h4>
+        <ol>
+          <<li>消 1 行 = 不送垃圾；2 行 = 1 行；3 行 = 2 行；Tetris（4行）= 4 行</li>
+          <li>任一方堆到頂 → game over，另一方獲勝</li>
+          <li>按「再戰一局」可 rematch</li>
+          <li>斷線自動重連（exponential backoff, 最長 30s）</li>
+          <li>連線狀態：🟢 連線中 / 🟡 連線中斷 / 🔴 已斷線</li>
+        </ol>
+      </div>
+    </div>
   </div>
 
   <div class="card" style="text-align:center">
@@ -248,187 +210,301 @@
   </div>
 </section>
 
-<!-- ═════════════════ SECTION 2: Loop Engineering ═════════════════ -->
-<section id="loop">
-  <h2><span class="num">2</span> Loop Engineering 設計說明</h2>
+<!-- ══════════ 1.5 部署環境 ══════════ -->
+<section id="deploy">
+  <h2><span class="num">—</span> 部署與環境</h2>
 
   <div class="card">
-    <h3>Success Criteria 定義方式</h3>
-    <p>每一個 Task 都有明確的 <strong>ACCEPTANCE</strong> 與 <strong>fr_refs</strong> 鏈結回 spec 中的 FR-### 需求。驗收標準分三層：</p>
-    <table>
-      <tr><th>層級</th><th>內容</th><th>範例</th></tr>
-      <tr><td><strong>FR (Functional Req)</strong></td><td>功能面要求，必須可測試</td><td>FR-007: 登入密碼短於8碼回傳400</td></tr>
-      <tr><td><strong>SC (Scenario)</strong></td><td>使用情境，端到端流程</td><td>SC-001: 兩玩家開房→對戰→game_over流程</td></tr>
-      <tr><td><strong>QA Gate</strong></td><td>自動化 + 人工關卡</td><td>Stage A (lint/SAST/secretscan) + Stage B (reviewer + test_engineer)</td></tr>
-    </table>
-    <p>每個 Task 完成時，必須有 <strong>reviewer APPROVED</strong> + <strong>test_engineer PASS</strong> 雙重簽核才算過關。</p>
-  </div>
-
-  <div class="card">
-    <h3>迴圈總體約束（Loop Governance）</h3>
-    <table>
-      <tr><th>項目</th><th>設定值</th></tr>
-      <tr><td>最大迴圈數</td><td><strong>5 輪</strong>（對應 plan 5 個 Phase），超過即停止並回報</td></tr>
-      <tr><td>每輪成功標準</td><td>該輪所有 Task 通過 Stage A + Stage B</td></tr>
-      <tr><td>安全閥</td><td>Circuit Breaker、Spec-Staleness Guard、Heartbeat、Stage A gate</td></tr>
-      <tr><td>中斷接續</td><td><code>progress.md</code> 記錄最後完成的 loop 與待辦事項</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h3>Loop 執行歷程（5 輪）</h3>
-    <div class="timeline">
-      <div class="tl-item done">
-        <h4>Loop 1 — 後端核心</h4>
-        <div class="meta">Session 1 | 3 tasks | ✅ 完成</div>
-        <div class="summary">
-          server.py（RoomManager, heartbeat, game loop）+ game.py（Board, SRS, 7-bag, scoring, garbage）
-          整合測試 28/28 通過，reviewer APPROVED。
-        </div>
+    <h3>WSL / Docker 環境建置</h3>
+    <div class="grid2">
+      <div>
+        <h4>WSL 環境</h4>
+        <ul>
+          <li><strong>WSL 版本</strong>：WSL 2</li>
+          <li><strong>Linux 發行版</strong>：Ubuntu 22.04 LTS</li>
+          <li><strong>Docker Desktop</strong>：開啟 WSL 2 backend 設定，綁定 Ubuntu</li>
+          <li><strong>專案目錄</strong>：<code>/home/user/tetris/</code> 或透過 <code>/mnt/c/Users/...</code> 存取 Windows 檔案</li>
+        </ul>
       </div>
-      <div class="tl-item done">
-        <h4>Loop 2 — 前端 UI</h4>
-        <div class="meta">Session 2 | 4 tasks | ✅ 完成</div>
-        <div class="summary">
-          index.html 大廳 + Canvas 渲染 + DAS/ARR 鍵盤控制 + 觸控按鈕 + WebSocket 客戶端（exponential backoff reconnect）
-        </div>
-      </div>
-      <div class="tl-item done">
-        <h4>Loop 3 — 前後端整合</h4>
-        <div class="meta">Session 2–3 | 3 tasks | ✅ 完成</div>
-        <div class="summary">
-          lobby 配對流程（Create/Join/Ready）、game flow（state→render、game_over、rematch）、
-          斷線處理（心跳超時、自動重連、連回後 state recovery）
-          <br><strong>最大發現：</strong>前後端協定名稱不一致（type:state vs state_update, action:drop vs hard_drop）— 靠 E2E test 捕獲
-        </div>
-      </div>
-      <div class="tl-item done">
-        <h4>Loop 4 — Docker + 修復</h4>
-        <div class="meta">Session 3 | 3 tasks | ✅ 完成</div>
-        <div class="summary">
-          Dockerfile multi-stage、README、修復 websockets 16.x API 變更（process_request signature、Response/Headers 物件）
-        </div>
-      </div>
-      <div class="tl-item">
-        <h4>Loop 5 — PWA + 迴圈記錄</h4>
-        <div class="meta">Session 3 | 2 tasks | ✅ 完成</div>
-        <div class="summary">
-          docker-compose.yml、manifest.json、progress.md 完整 loop log、
-          本成果發表頁面
-        </div>
+      <div>
+        <h4>建置與啟動</h4>
+        <ol>
+          <li><code>git clone https://github.com/shangwolin/william-tetris-game-mult.git</code></li>
+          <li><code>cd william-tetris-game-mult</code></li>
+          <li><code>docker compose up --build -d</code></li>
+          <li>打開 <code>http://localhost:8765</code></li>
+        </ol>
       </div>
     </div>
   </div>
 
   <div class="card">
-    <h3>安全閥 / 邊界設計</h3>
+    <h3>兩台電腦連線對戰操作步驟</h3>
+    <table>
+      <tr><th>情境</th><th>Host（伺服器端）</th><th>Client（朋友端）</th></tr>
+      <tr>
+        <td><strong>區網</strong></td>
+        <td><code>docker compose up --build</code><br>查 IP：<code>ip addr</code> 或 <code>ipconfig</code><br>開防火牆 port 8765</td>
+        <td>瀏覽器打開<br><code>http://&lt;Host-IP&gt;:8765</code></td>
+      </tr>
+      <tr>
+        <td><strong>網際網路<br>(ngrok)</strong></td>
+        <td><code>docker compose up --build</code><br><code>ngrok http 8765</code><br>取得 <code>https://xxxx.ngrok-free.dev</code></td>
+        <td>瀏覽器打開<br><code>https://xxxx.ngrok-free.dev</code><br>自動 wss:// 連線</td>
+      </tr>
+      <tr>
+        <td><strong>同一台電腦<br>測試</strong></td>
+        <td><code>python server.py</code></td>
+        <td>開兩個 browser tab<br>都連 <code>http://localhost:8765</code></td>
+      </tr>
+    </table>
+    <p style="margin-top:0.5rem">⚠️ 區網連線需關閉 Windows 防火牆或新增 8765 入站規則；ngrok 需先註冊帳號取得 authtoken。</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Dockerfile</h3>
+      <code>python:3.11-slim</code> base image<br>
+      <code>pip install websockets</code><br>
+      <code>COPY server.py game.py index.html manifest.json ./</code><br>
+      <code>EXPOSE 8765</code><br>
+      <code>CMD ["python", "server.py"]</code>
+    </div>
+    <div class="card">
+      <h3>docker-compose.yml</h3>
+      <code>services:<br>&nbsp;&nbsp;tetris-server:<br>&nbsp;&nbsp;&nbsp;&nbsp;build: .<br>&nbsp;&nbsp;&nbsp;&nbsp;ports: ["8765:8765"]<br>&nbsp;&nbsp;&nbsp;&nbsp;restart: unless-stopped</code>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 2. Loop Engineering ══════════ -->
+<section id="loop">
+  <h2><span class="num">2</span> Loop Engineering 設計說明</h2>
+
+  <div class="card">
+    <h3>2.1 Success Criteria — 怎麼定義驗收標準</h3>
+    <p>在每一輪 loop 啟動前，該輪的 success criteria 已經透過 <code>spec.md</code> 與 <code>plan.json</code> 明確定義。採用三層架構：</p>
+    <table>
+      <tr><th>層級</th><th>對應 HW2 四階段</th><th>定義方式</th><th>範例</th></tr>
+      <tr><td><strong>FR (Functional Requirement)</strong></td><td>Planning Agent</td><td>可測試的功能規格，每條有唯一 FR-### 編號</td><td>FR-005: 消行時應對對手送出對應 garbage lines</td></tr>
+      <tr><td><strong>SC (Scenario)</strong></td><td>Planning Agent</td><td>端到端使用情境，驗證跨功能流程</td><td>SC-001: 兩玩家開房→ready→對戰→game_over 流程正確</td></tr>
+      <tr><td><strong>QA Gate</strong></td><td>Validator / Governance Agent</td><td>Stage A（lint, SAST, secretscan）+ Stage B（reviewer + test_engineer）</td><td>lint PASS + reviewer APPROVED + test PASS</td></tr>
+    </table>
+    <p>每一輪的通過條件 = <strong>該輪所有 Task 的 FR 實作完成 + Stage A/B 全數綠燈</strong>，不得以「看起來差不多」作為驗收標準。</p>
+  </div>
+
+  <div class="card">
+    <h3>2.2 Loop 跑了幾輪？每一輪發生了什麼？</h3>
+    <p><strong>5 輪</strong>，對應計畫中的 5 個 Phases：</p>
+    <div class="timeline">
+      <div class="tl-item done">
+        <h4>Loop 1 — 後端核心</h4>
+        <div class="meta">3 tasks | ✅ Stage A+B 通過</div>
+        <div>server.py（RoomManager, heartbeat, game loop）+ game.py（Board, SRS, 7-bag, scoring, garbage）<br>
+        整合測試 28/28 → reviewer APPROVED → drift verifier APPROVED</div>
+      </div>
+      <div class="tl-item done">
+        <h4>Loop 2 — 前端 UI</h4>
+        <div class="meta">4 tasks | ✅ Stage A+B 通過</div>
+        <div>index.html 大廳 + Canvas 渲染 + DAS/ARR 鍵盤控制 + 觸控按鈕 + WebSocket 客戶端（exponential backoff reconnect）</div>
+      </div>
+      <div class="tl-item done">
+        <h4>Loop 3 — 前後端整合</h4>
+        <div class="meta">3 tasks | ✅ Stage A+B 通過</div>
+        <div>lobby 配對流程、game flow（state→render→game_over→rematch）、斷線處理<br>
+        <strong>關鍵發現</strong>：前後端協定名稱不一致（type:state vs state_update, action:drop vs hard_drop）— E2E test 捕獲</div>
+      </div>
+      <div class="tl-item done">
+        <h4>Loop 4 — Docker + 修復</h4>
+        <div class="meta">3 tasks | ✅ Stage A+B 通過</div>
+        <div>Dockerfile multi-stage、README、修復 websockets 16.x API 變更（process_request, Response, Headers）</div>
+      </div>
+      <div class="tl-item done">
+        <h4>Loop 5 — PWA + 迴圈記錄</h4>
+        <div class="meta">2 tasks | ✅ 完成</div>
+        <div>docker-compose.yml、manifest.json、progress.md 完整 loop log、本成果發表頁面</div>
+      </div>
+    </div>
+
+    <h3>驗收結果變化（fail → pass 實例）</h3>
+    <table>
+      <tr><th>Task</th><th>初始狀態</th><th>問題</th><th>修正後</th></tr>
+      <tr><td>1.1 broadcast()</td><td class="warn">❌ Fail</td><td>sync def + await → TypeError</td><td class="ok">✅ async def</td></tr>
+      <tr><td>1.1 winner 邏輯</td><td class="warn">❌ Fail</td><td>ternary 反轉 → 贏家變輸家</td><td class="ok">✅ if/else 修正</td></tr>
+      <tr><td>3.1–3.3 protocol</td><td class="warn">❌ 連不上</td><td>type:state vs state_update<br>action:drop vs hard_drop</td><td class="ok">✅ 統一命名</td></tr>
+      <tr><td>4.1 process_request</td><td class="warn">❌ 426 Upgrade</td><td>舊 signature (path, headers)</td><td class="ok">✅ (connection, request)</td></tr>
+      <tr><td>4.1 Response headers</td><td class="warn">❌ AttributeError</td><td>plain dict → 缺 .serialize()</td><td class="ok">✅ Headers 物件</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>2.3 安全閥與邊界</h3>
     <div class="grid2">
       <div>
         <h4>🛡️ 技術安全閥</h4>
         <ul>
-          <li><strong>Heartbeat timeout</strong>：5s interval，2 次 miss 自動斷線，防 ghost connection</li>
-          <li><strong>Exponential backoff reconnect</strong>：最長 30s，10 次上限，防 reconnect storm</li>
-          <li><strong>max_size</strong>：WebSocket message 上限 1MB，防 OOM</li>
-          <li><strong>broadcast() async</strong>：sync→async 修正，防 un-awaited coroutine</li>
-          <li><strong>Hold atomic restore</strong>：swap 失敗時 snapshot rollback，防 partial mutation</li>
+          <li><strong>Loop Boundary</strong>：最多 <strong>5 輪</strong>，超過即停止回報</li>
+          <li><strong>Heartbeat timeout</strong>：5s interval，2 次 miss 自動斷線</li>
+          <li><strong>Exponential backoff reconnect</strong>：最長 30s，10 次上限</li>
+          <li><strong>max_size</strong>：WebSocket message 上限 1MB</li>
+          <li><strong>broadcast() async</strong>：修正 sync→async</li>
+          <li><strong>Hold atomic restore</strong>：snapshot rollback</li>
         </ul>
       </div>
       <div>
-        <h4>🔁 Process 安全閥</h4>
+        <h4>🔁 流程安全閥</h4>
         <ul>
-          <li><strong>Critic Gate</strong>：plan 執行前必須通過 critic 審查（最大 2 輪 revision）</li>
-          <li><strong>Stage A + Stage B</strong>：自動化工具（lint, SAST, secretscan）+ agent review（reviewer + test_engineer）雙重關卡</li>
-          <li><strong>Circuit Breaker</strong>：coder 3 次失敗 → 暫停、consult critic_sounding_board → 簡化任務後重試</li>
-          <li><strong>Spec-Staleness Guard</strong>：spec 與 plan 不一致時封鎖 save_plan / update_task_status</li>
+          <li><strong>Critic Gate</strong>：plan 執行前須通過 critic 審查（max 2 輪 revision）</li>
+          <li><strong>Stage A + Stage B 雙重關卡</strong></li>
+          <li><strong>Circuit Breaker</strong>：coder 3 次失敗 → 暫停 → 諮詢 → 簡化或上報</li>
+          <li><strong>Spec-Staleness Guard</strong>：spec 與 plan 不一致時封鎖寫入</li>
+          <li><strong>Token 成本</strong>：無硬性限制，但 circuit breaker 防止無限浪費</li>
         </ul>
       </div>
     </div>
   </div>
 
   <div class="card" style="text-align:center">
-    <h3>完整迴圈記錄</h3>
-    <p>詳見 <code>progress.md</code> — 每輪記錄目標、執行摘要、驗收結果、問題修正、下一步</p>
-    <a class="btn btn-outline" href="https://github.com/shangwolin/william-tetris-game-mult/blob/master/progress.md" target="_blank">查看 progress.md</a>
+    <p>完整記錄：<a href="https://github.com/shangwolin/william-tetris-game-mult/blob/master/progress.md" target="_blank">progress.md</a></p>
   </div>
 </section>
 
-<!-- ═════════════════ SECTION 3: Multi-Agent ═════════════════ -->
+<!-- ══════════ 3. Multi-Agent ══════════ -->
 <section id="agents">
   <h2><span class="num">3</span> Multi-Agent 設計說明</h2>
 
   <div class="card">
-    <h3>Agent 分工架構</h3>
-    <div class="arch-grid">
-      <div class="arch-row"><span class="arch-box primary">🧠 Architect</span><span class="arch-label">Orchestrator — 任務拆解、路由、品質把關</span></div>
-      <div class="arch-row"><span class="arch-arrow">├─→</span><span class="arch-box">🔍 Explorer</span><span class="arch-label">Codebase 實況調查、領域偵測</span></div>
-      <div class="arch-row"><span class="arch-arrow">├─→</span><span class="arch-box">📚 SME</span><span class="arch-label">領域專家（security, Python, networking…）</span></div>
-      <div class="arch-row"><span class="arch-arrow">├─→</span><span class="arch-box">💻 Coder</span><span class="arch-label">實作（一次一個 task）</span></div>
-      <div class="arch-row"><span class="arch-arrow">├─→</span><span class="arch-box">👁️ Reviewer</span><span class="arch-label">Code review（security, correctness, edge-cases）</span></div>
-      <div class="arch-row"><span class="arch-arrow">├─→</span><span class="arch-box">🧪 Test Engineer</span><span class="arch-label">測試撰寫 + 執行（含 adversarial）</span></div>
-      <div class="arch-row"><span class="arch-arrow">├─→</span><span class="arch-box">📝 Critic</span><span class="arch-label">Plan review gate（pre-implementation）</span></div>
-      <div class="arch-row"><span class="arch-arrow">├─→</span><span class="arch-box">💬 Critic Sounding Board</span><span class="arch-label">Pre-escalation pushback（3 次 impasse 觸發）</span></div>
-      <div class="arch-row"><span class="arch-arrow">└─→</span><span class="arch-box">📖 Docs</span><span class="arch-label">README / API docs 更新</span></div>
+    <h3>3.1 Agent 分工架構</h3>
+    <p>對應 HW2 的四代理人概念，本次作業將其擴展為可並行的 Agent Swarm 架構：</p>
+
+    <div style="display:flex;flex-direction:column;gap:0.6rem;font-family:'Consolas','Courier New',monospace;font-size:0.82rem;margin:1rem 0">
+      <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap">
+        <span class="mapping-old">HW2 Agent 1 Planning</span>
+        <span class="mapping-arrow">→</span>
+        <span class="mapping-new">🧠 Architect + 🔍 Explorer + 📚 SME</span>
+        <span class="arch-label" style="font-family:inherit">任務拆解、領域調查、專家諮詢</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap">
+        <span class="mapping-old">HW2 Agent 2 Governance</span>
+        <span class="mapping-arrow">→</span>
+        <span class="mapping-new">📝 Critic + 💬 Critic Sounding Board</span>
+        <span class="arch-label" style="font-family:inherit">plan 審查、pre-escalation 反思</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap">
+        <span class="mapping-old">HW2 Agent 3 Coding</span>
+        <span class="mapping-arrow">→</span>
+        <span class="mapping-new">💻 Coder</span>
+        <span class="arch-label" style="font-family:inherit">實作（一次一個 task）</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap">
+        <span class="mapping-old">HW2 Agent 4 Validator</span>
+        <span class="mapping-arrow">→</span>
+        <span class="mapping-new">👁️ Reviewer + 🧪 Test Engineer</span>
+        <span class="arch-label" style="font-family:inherit">code review + 測試 + adversarial</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap">
+        <span class="mapping-arrow" style="visibility:hidden">→</span>
+        <span class="mapping-new">📖 Docs</span>
+        <span class="arch-label" style="font-family:inherit">文件更新（新增角色）</span>
+      </div>
     </div>
 
-    <h3 style="margin-top:1.5rem">為什麼這樣分工？</h3>
-    <p><strong>關注點分離（Separation of Concerns）</strong>是核心原則。每一個 agent 只做一件事：</p>
-    <ul>
-      <li><strong>Architect</strong> 是唯一有全局 context window 的角色，負責拆解任務、路由、驗收 —— 其他人 context 較小，不需要知道全局</li>
-      <li><strong>Coder</strong> 只寫 code，不負責 review 或測試 —— 避免「作者盲點」（author blind to own mistakes）</li>
-      <li><strong>Reviewer</strong> 只看 code 不寫 code —— 純審查視角，沒有維護 bias</li>
-      <li><strong>Test Engineer</strong> 獨立於 coder 之外寫測試 —— 確保測試不是被實作「污染」的 happy path</li>
-      <li><strong>Critic</strong> 在 plan 階段就介入 —— 避免花時間實作一個從根本上就有問題的設計</li>
-      <li><strong>Critic Sounding Board</strong> 是架構師的「橡膠鴨」—— 在 escalation 之前先自我反思</li>
-    </ul>
-  </div>
+    <h4>完整 Swarm 架構圖</h4>
+    <div style="font-family:'Consolas','Courier New',monospace;font-size:0.82rem;background:#050510;border-radius:8px;padding:1rem;margin:0.5rem 0;border:1px solid rgba(124,77,255,0.1)">
+🧠 <strong>Architect</strong> ← Orchestrator（最大 context window）<br>
+&nbsp;&nbsp;├─→ 🔍 Explorer — codebase 實況調查、領域偵測<br>
+&nbsp;&nbsp;├─→ 📚 SME — 領域專家（security, Python, networking）<br>
+&nbsp;&nbsp;├─→ 💻 Coder — 實作（一次一個 task）<br>
+&nbsp;&nbsp;├─→ 👁️ Reviewer — code review（security, correctness, edge-cases）<br>
+&nbsp;&nbsp;├─→ 🧪 Test Engineer — 測試撰寫 + 執行 + adversarial<br>
+&nbsp;&nbsp;├─→ 📝 Critic — plan review gate（pre-implementation）<br>
+&nbsp;&nbsp;├─→ 💬 Critic Sounding Board — pre-escalation pushback<br>
+&nbsp;&nbsp;└─→ 📖 Docs — README / API docs 更新
+    </div>
 
-  <div class="card">
-    <h3>跟前次作業的差異與演進</h3>
-    <p>本次作業（Swarm 版）與傳統單一 agent 開發有以下關鍵差異：</p>
+    <h3 style="margin-top:1.5rem">3.2 為什麼這樣分工？與 HW2 的差異與演進</h3>
     <table>
-      <tr><th>面向</th><th>傳統單一 Agent</th><th>Multi-Agent Swarm</th></tr>
-      <tr><td>分工</td><td>同一個 model 負責 plan→code→review→test</td><td>Architect 拆解，專用 agent 各司其職</td></tr>
-      <tr><td>品質</td><td>靠同一個 model 自我審查（有 bias）</td><td>獨立的 reviewer + test_engineer 雙重關卡</td></tr>
-      <tr><td>Plan 驗證</td><td>直接開始寫 code</td><td>Critic pre-plan gate + Sounding Board</td></tr>
-      <tr><td>Context</td><td>單一 context 塞所有資訊</td><td>Architect 有大 context，subagent 只拿需要的</td></tr>
-      <tr><td>失敗處理</td><td>同一個 agent 反覆重試</td><td>3 次失敗 → Circuit Breaker → SME 諮詢 → 簡化</td></tr>
-      <tr><td>知識累積</td><td>session 結束就忘記</td><td>Knowledge Base（.swarm/knowledge.jsonl）+ Lessons Learned</td></tr>
-      <tr><td>安全性</td><td>無 gate</td><td>Stage A（lint, SAST, secretscan）+ Stage B（reviewer+tester）</td></tr>
+      <tr><th>面向</th><th>HW2 — 四 Agent 循序</th><th>HW3 — Swarm 並行</th></tr>
+      <tr><td>執行模式</td><td>Agent 1→2→3→4 直線跑一輪</td><td>Architect 拆解，subagent 可並行 dispatch</td></tr>
+      <tr><td>品質</td><td>同一個 agent 身兼 code + review（自我 bias）</td><td>獨立的 reviewer + test_engineer 雙重關卡，Sounding Board 再一層</td></tr>
+      <tr><td>Plan 驗證</td><td>Governance Agent 自己做 plan review</td><td>Critic pre-plan gate（獨立 agent，2 輪 revision max）</td></tr>
+      <tr><td>Context 管理</td><td>單一 context 塞所有資訊</td><td>Architect 有大 context，subagent 只拿需要的 prompt</td></tr>
+      <tr><td>失敗處理</td><td>同一個 agent 反覆重試</td><td>3 次失敗 → Circuit Breaker → SME 諮詢 → 簡化或上報</td></tr>
+      <tr><td>知識累積</td><td>session 結束就忘記</td><td>Knowledge Base（.swarm/knowledge.jsonl）+ Lessons Learned 跨 loop 累積</td></tr>
+      <tr><td>Loop 機制</td><td>無 — 跑完一輪就結束</td><td>Loops 1–5，每輪有獨立 success criteria 與驗收</td></tr>
       <tr><td>可回溯</td><td>無</td><td>Evidence bundles + progress.md loop log</td></tr>
     </table>
   </div>
 
   <div class="card">
-    <h3>Agent Swarm 實際運作記錄</h3>
-    <p>以下為本次開發過程的真實 log 片段（節錄自 events.jsonl 與 swarm context）：</p>
+    <h3>3.3 Agent Swarm 實際運作展示</h3>
 
+    <h4>Architect 初始 Prompt（給 swarm 的任務設定範例）</h4>
     <div class="log-block">
-<span class="ts">[Session 1]</span> <span class="info">Phase 1: 後端 WebSocket 伺服器核心</span>
-   ├─ <span class="info">Task 1.1</span> server.py → <span class="ok">28/28 tests PASS</span>, reviewer APPROVED
-   ├─ <span class="info">Task 1.2</span> game.py → <span class="ok">13/13 tests PASS</span>, reviewer APPROVED
-   ├─<span class="warn"> ⚠ broadcast() sync→async fix</span>
-   └─ <span class="info">Task 1.3</span> room mgmt → <span class="ok">reviewer APPROVED</span>, drift verifier APPROVED
+<span class="info"># Task 1.1 — WebSocket 伺服器</span>
+TASK: 建立 Python WebSocket 伺服器，含房間管理、心跳機制
+ACCEPTANCE: FR-001 伺服器支援 WebSocket 連線，port 8765
+             FR-002 支援 10+ 同時房間，每房間 2 玩家
+             SC-001 兩玩家開房→ready→對戰流程完整
+SKILLS: file:.claude/skills/engineering-conventions/SKILL.md
+---
+<span class="warn">⚠ 前後端 protocol 比對（Loop 3 發現）：</span>
+Server 發 type:state → Client handler 寫成 state_update ❌
+Client 送 action:hard_drop → Server 收 hard_drop 無對應 ❌
+<span class="ok">修正後：type:state / action:drop 統一</span>
+    </div>
 
-<span class="ts">[Session 2]</span> <span class="info">Phase 2: 前端遊戲 UI</span>
-   ├─ <span class="info">Task 2.1–2.4</span> index.html, Canvas, DAS/ARR, WebSocket client
-   └─ <span class="warn">⚠ protocol mismatch detected:</span> type:state vs state_update, action:drop vs hard_drop
+    <h4>Stage A + Stage B 閘門記錄</h4>
+    <div class="log-block">
+<span class="ts">[Phase 1]</span> <span class="info">Task 1.1 server.py</span>
+   ├─ <span class="ok">✅ syntax_check PASS</span>
+   ├─ <span class="ok">✅ lint fix PASS</span>
+   ├─ <span class="ok">✅ build_check PASS</span>
+   ├─ <span class="ok">✅ pre_check_batch PASS</span>
+   ├─ <span class="ok">✅ reviewer APPROVED</span>
+   └─ <span class="ok">✅ test_engineer PASS</span>
 
-<span class="ts">[Session 3]</span> <span class="info">Phase 3+4+5: 整合, Docker, 文件</span>
-   ├─ <span class="info">Phase 3 reviewer</span> → <span class="ok">APPROVED</span> (protocol verified)
-   ├─<span class="warn"> ⚠ websockets 16.x API 變更:</span> process_request → (connection, request)
-   ├─<span class="warn"> ⚠ Response headers → 須用 Headers 物件非 dict</span>
-   ├─ <span class="ok">Dockerfile + docker-compose.yml + README</span>
-   └─ <span class="ok">progress.md + 本成果發表頁面</span>
-</div>
+<span class="ts">[Phase 1]</span> <span class="info">Task 1.2 game.py</span>
+   ├─ <span class="ok">✅ syntax_check PASS</span>
+   ├─ <span class="ok">✅ pre_check_batch PASS</span>
+   ├─ <span class="ok">✅ reviewer APPROVED</span>
+   └─ <span class="ok">✅ test_engineer 13/13 PASS</span>
+
+<span class="ts">[Phase 1]</span> <span class="info">Task 1.3 room mgmt</span>
+   ├─ <span class="ok">✅ reviewer APPROVED</span>
+   ├─ <span class="ok">✅ drift verifier APPROVED</span>
+   └─ <span class="ok">✅ phase_complete Gate 1-5 PASS</span>
+
+<span class="ts">[Phase 3]</span> <span class="info">Integration reviewer</span>
+   └─ <span class="ok">✅ APPROVED (protocol match verified)</span>
+    </div>
+
+    <h4>多 Agent 並行 dispatch 記錄（events.jsonl 節錄）</h4>
+    <div class="log-block">
+<span class="ts">[2026-07-28]</span> dispatch_lanes_async
+   ├─ lane explorer: codebase discovery
+   ├─ lane reviewer: PR review
+   └─ lane critic: architecture challenge
+
+<span class="ts">[2026-07-28]</span> Task(coder) × 2 dispatched in parallel
+   ├─ coder: Task 2.3 keyboard controls
+   └─ coder: Task 2.4 WebSocket client
+   <span class="warn">⚠ worktree isolation active — writes do not collide</span>
+    </div>
+
+    <p style="margin-top:0.5rem">完整 logs 與 evidence 存於 repo 的 <code>.swarm/</code> 目錄。</p>
+    <div style="text-align:center;margin-top:0.5rem">
+      <a class="btn btn-outline" href="https://github.com/shangwolin/william-tetris-game-mult/tree/master/.swarm/evidence" target="_blank">查看 Evidence Bundles</a>
+      <a class="btn btn-outline" href="https://github.com/shangwolin/william-tetris-game-mult/blob/master/.swarm/events.jsonl" target="_blank">查看 Log</a>
+    </div>
   </div>
 
   <div class="card" style="text-align:center">
-    <p>完整 Evidence Bundles 可於 GitHub Repo 的 <code>.swarm/evidence/</code> 目錄查閱</p>
-    <a class="btn btn-outline" href="https://github.com/shangwolin/william-tetris-game-mult/tree/master/.swarm/evidence" target="_blank">查看 Evidence</a>
+    <p>操作截圖可置於 <code>showcase/</code> 目錄後嵌入 <code>&lt;img&gt;</code> 標籤</p>
   </div>
 </section>
 
-<!-- ═════════════════ SECTION 4: 反思 ═════════════════ -->
+<!-- ══════════ 4. 反思 ══════════ -->
 <section id="reflection">
   <h2><span class="num">4</span> 反思</h2>
 
@@ -439,18 +515,20 @@
         <h4>✅ 正面幫助</h4>
         <ol>
           <li><strong>強制收斂</strong> — 每輪 loop 有明確的目標與驗收標準，不會一直發散加功能</li>
-          <li><strong>早期發現整合問題</strong> — Loop 3 發現的前後端協定不一致如果沒有獨立驗收，可能會藏到最後才炸</li>
+          <li><strong>早期發現整合問題</strong> — Loop 3 發現的前後端協定不一致，如果沒有獨立驗收，可能會藏到最後才炸</li>
           <li><strong>知識累積</strong> — Lessons Learned 從 Loop 1 累積到 Loop 5，同一問題不會重複踩坑</li>
           <li><strong>安全閥讓失敗是安全的</strong> — Circuit Breaker 機制防止浪費 token 在無解的任務上</li>
+          <li><strong>可中斷續接</strong> — progress.md 記錄最後完成的 loop 狀態，關掉 session 後下次回來知道從哪裡繼續</li>
         </ol>
       </div>
       <div>
         <h4>⚠️ 踩坑記錄</h4>
         <ol>
-          <li><strong>Coder model 不可用</strong> — opencode/minimax-m2.5-free 不存在，被迫架構師自己寫 code，繞過 QA gate</li>
+          <li><strong>Coder model 不可用</strong> — opencode/minimax-m2.5-free 不存在，架構師被迫自己寫 code，繞過 QA gate</li>
           <li><strong>Reviewer / Test Engineer 空回傳</strong> — 部分 subagent model 靜默失敗不回 verdict，需人工 retry</li>
-          <li><strong>Spec-staleness 卡關</strong> — spec 與 plan 不一致時完全封鎖，需手動 /swarm acknowledge-spec-drift</li>
+          <li><strong>Spec-staleness 卡關</strong> — spec 與 plan 不一致時完全封鎖，需手動 acknowledge</li>
           <li><strong>websockets 16.x 文獻不足</strong> — API 變動大（process_request, Response, Headers），靠實驗摸索</li>
+          <li><strong>Loop Governance 太晚定義</strong> — Success Criteria 和 Loop Boundary 是在全部開發完後才補文件的，應在 Loop 1 開始前就定義</li>
         </ol>
       </div>
     </div>
@@ -462,19 +540,21 @@
       <div>
         <h4>🔧 Loop Engineering 改進</h4>
         <ul>
-          <li><strong>更小的 loop</strong> — 有些 task 太大（如 2.2 Canvas rendering），應拆成更細的 sub-task</li>
-          <li><strong>E2E test 提前</strong> — Loop 3 才寫 E2E test，應該 Loop 1 就寫，更早捕獲 protocol 問題</li>
+          <li><strong>更小的 loop</strong> — 有些 task 太大（如 Canvas rendering），應拆成更細的 sub-task</li>
+          <li><strong>E2E test 提前到 Loop 1</strong> — 更早捕獲 protocol 問題</li>
           <li><strong>每一輪強制 retrospective</strong> — 前幾輪沒有即時寫 lesson learned，靠記憶不準確</li>
           <li><strong>定義 escape hatch</strong> — 當 subagent 不可用時應立即降級，而不是重試 3 次才 fallback</li>
+          <li><strong>Loop Governance 事前定義</strong> — Boundary / Criteria / Guardrail 應在開發前就寫明</li>
         </ul>
       </div>
       <div>
         <h4>🔧 Agent 分工改進</h4>
         <ul>
-          <li><strong>Coder model 備援</strong> — 應支援多個 model fallback chain，避免單一 model 不可用就卡住</li>
-          <li><strong>減少 Architect 手動 routing</strong> — 多個獨立 task 應自動 parallel dispatch（Epic Mode 的 wave 概念）</li>
+          <li><strong>Coder model 備援</strong> — 應支援多個 model fallback chain</li>
+          <li><strong>減少 Architect 手動 routing</strong> — 獨立 task 應自動 parallel dispatch（Epic Mode wave 概念）</li>
           <li><strong>更強的 reviewer checklist</strong> — Reviewer 應有 task-specific checklist 而非通用維度</li>
           <li><strong>Test Engineer 獨立 context</strong> — 測試不應看到 coder 的實作細節，避免 biased test</li>
+          <li><strong>分散式 agent 監控</strong> — 每個 subagent 應有獨立的 timeout 與 retry 策略，而非全靠 architect 輪詢</li>
         </ul>
       </div>
     </div>
@@ -482,34 +562,29 @@
 
   <div class="card" style="text-align:center">
     <h3>小結</h3>
-    <p>這次作業證明 Multi-Agent Swarm + Loop Engineering 確實能產出更高品質的程式碼，</p>
-    <p>付出的代價是更複雜的 infra 與更多的 token 消耗，但換來的是</p>
+    <p>本次作業證明 <strong>Multi-Agent Swarm + Loop Engineering</strong> 確實能產出更高品質的程式碼——</p>
+    <p>代價是更複雜的 infra 與更多的 token 消耗，但換來的是</p>
     <p><strong>可審查、可回溯、可中斷續接的開發流程</strong>。</p>
+    <p>Loop 不是魔法——它只是把「驗收」從人腦移到系統裡，讓它不會被跳過。</p>
     <p style="margin-top:1rem;font-size:0.85rem;color:var(--text2)">
-      完整記錄：<code>progress.md</code> │ Evidence：<code>.swarm/evidence/</code> │ Repo：<code>github.com/shangwolin/william-tetris-game-mult</code>
+      HW3 — Loop Engineering × Multi-Agent 協作開發<br>
+      Repo：<code>github.com/shangwolin/william-tetris-game-mult</code>
     </p>
   </div>
 </section>
 
 <footer>
-  <p>Tetris Battle — Loop Engineering 成果發表 &copy; 2026</p>
-  <p>Built with Agent Swarm + Python + JavaScript</p>
+  <p>Tetris Battle — HW3 Loop Engineering × Multi-Agent 成果發表 &copy; 2026</p>
+  <p>Built with Agent Swarm · Python · JavaScript · Docker</p>
 </footer>
 
 <script>
-// Service Worker 註冊（PWA）
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js');
-}
-// Smooth scroll for nav
+if ('serviceWorker' in navigator) { navigator.serviceWorker.register('./sw.js'); }
 document.querySelectorAll('nav a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const id = a.getAttribute('href').slice(1);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  a.addEventListener('click', e => { e.preventDefault();
+    document.getElementById(a.getAttribute('href').slice(1))?.scrollIntoView({ behavior: 'smooth' });
   });
 });
-// Active nav highlight
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -519,7 +594,7 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.4 });
-['intro','loop','agents','reflection'].forEach(id => {
+['intro','deploy','loop','agents','reflection'].forEach(id => {
   const el = document.getElementById(id);
   if (el) observer.observe(el);
 });

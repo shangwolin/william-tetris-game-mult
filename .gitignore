@@ -6,3 +6,8 @@ test_server.log
 test_server_err.log
 check_ws*.py
 check_headers*.py
+
+# Swarm internal state (auto-generated)
+.swarm/
+.opencode/
+progress.md

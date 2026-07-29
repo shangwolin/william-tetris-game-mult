@@ -207,33 +207,42 @@ class Board:
                 self.grid[row][col] = idx
 
     def clear_lines(self) -> int:
-        """Clear all complete lines, return the number cleared."""
+        """Clear all complete lines, return effective lines after garbage offset."""
         new_grid = []
-        lines_cleared = 0
+        physical_lines = 0
         for row in self.grid:
             if all(cell != 0 for cell in row):
-                lines_cleared += 1
+                physical_lines += 1
             else:
                 new_grid.append(row)
 
         # Add empty rows at the top
-        for _ in range(lines_cleared):
+        for _ in range(physical_lines):
             new_grid.insert(0, [0] * self.width)
 
         self.grid = new_grid
 
-        if lines_cleared > 0:
-            self.lines_cleared_total += lines_cleared
-            # Update level
+        if physical_lines > 0:
+            self.lines_cleared_total += physical_lines
+            # Update level based on total physical lines
             new_level = self.lines_cleared_total // 10 + 1
             self.level = min(new_level, 99)
 
-            # Update score
+            # Score based on physical lines (always rewarded)
             multipliers = {1: 100, 2: 300, 3: 500, 4: 800}
-            self.score += multipliers.get(lines_cleared, 0) * self.level
+            self.score += multipliers.get(physical_lines, 0) * self.level
 
-        self._last_lines_cleared = lines_cleared
-        return lines_cleared
+        # ═══ GARBAGE OFFSET ═══
+        # Physical lines first cancel pending garbage (1:1 ratio).
+        # Only the excess lines become "effective" for attack calculation.
+        effective = physical_lines
+        if self.garbage_queue > 0 and effective > 0:
+            cancel = min(effective, self.garbage_queue)
+            self.garbage_queue -= cancel
+            effective -= cancel  # Remaining lines generate attack
+
+        self._last_lines_cleared = effective
+        return effective
 
     def get_last_lines_cleared(self) -> int:
         """Return the number of lines cleared in the most recent clear_lines call."""
