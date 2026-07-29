@@ -16,10 +16,10 @@ confirmed: true
 
 | Tool | Calls | Success | Failed | Avg Duration |
 |------|-------|---------|--------|--------------|
-| read | 106 | 106 | 0 | 17ms |
-| edit | 83 | 83 | 0 | 15ms |
-| bash | 55 | 55 | 0 | 1752ms |
-| grep | 39 | 39 | 0 | 656ms |
+| read | 108 | 108 | 0 | 16ms |
+| edit | 89 | 89 | 0 | 15ms |
+| bash | 65 | 65 | 0 | 1642ms |
+| grep | 41 | 41 | 0 | 633ms |
 | write | 27 | 27 | 0 | 6ms |
 | glob | 26 | 26 | 0 | 55ms |
 | update_task_status | 22 | 22 | 0 | 116ms |

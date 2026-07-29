@@ -2,46 +2,137 @@
   "schema_version": "1.2.0",
   "workspaceRoot": "C:\\Users\\user\\Documents\\william-tetris-game",
   "nodes": {
-    "C:/Users/user/Documents/william-tetris-game/test_quick.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_quick.py",
-      "moduleName": "test_quick.py",
-      "exports": [],
+    "C:/Users/user/Documents/william-tetris-game/.swarm/bundled-skills/codebase-review-swarm/scripts/init-review-run.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\.swarm\\bundled-skills\\codebase-review-swarm\\scripts\\init-review-run.py",
+      "moduleName": ".swarm/bundled-skills/codebase-review-swarm/scripts/init-review-run.py",
+      "exports": [
+        "run",
+        "git_root",
+        "validate_run_id",
+        "resolve_run_dir",
+        "is_swarm_ignored",
+        "main"
+      ],
+      "exportLines": {
+        "run": 38,
+        "git_root": 52,
+        "validate_run_id": 57,
+        "resolve_run_dir": 65,
+        "is_swarm_ignored": 77,
+        "main": 85
+      },
+      "exportRanges": {
+        "run": {
+          "startLine": 38,
+          "endLine": 49
+        },
+        "git_root": {
+          "startLine": 52,
+          "endLine": 54
+        },
+        "validate_run_id": {
+          "startLine": 57,
+          "endLine": 62
+        },
+        "resolve_run_dir": {
+          "startLine": 65,
+          "endLine": 74
+        },
+        "is_swarm_ignored": {
+          "startLine": 77,
+          "endLine": 82
+        },
+        "main": {
+          "startLine": 85,
+          "endLine": 130
+        }
+      },
       "imports": [
-        "game"
+        "argparse",
+        "datetime",
+        "json",
+        "pathlib",
+        "re",
+        "subprocess",
+        "sys"
       ],
       "language": "python",
-      "mtime": "2026-07-28T13:21:46.879Z",
+      "mtime": "2026-07-28T12:51:31.684Z",
       "ontology": {
         "roles": [
           "source_module"
         ],
-        "packageBoundary": "test_quick.py",
+        "packageBoundary": ".swarm",
         "routes": [],
-        "dataOperations": [],
-        "security": [],
+        "dataOperations": [
+          {
+            "operation": "write",
+            "access": "sql",
+            "line": 89,
+            "evidence": "parser.add_argument(\"--review-type\", default=\"fresh\", choices=[\"fresh\", \"continuation\", \"update\"])"
+          }
+        ],
+        "security": [
+          {
+            "kind": "input_validation",
+            "line": 57,
+            "evidence": "def validate_run_id(raw: str) -> str:",
+            "confidence": "high"
+          },
+          {
+            "kind": "input_validation",
+            "line": 95,
+            "evidence": "run_id = validate_run_id(args.run_id or dt.datetime.utcnow().strftime(\"%Y%m%dT%H%M%SZ\"))",
+            "confidence": "high"
+          }
+        ],
         "conventions": [],
         "findings": []
       }
     },
-    "C:/Users/user/Documents/william-tetris-game/test_import.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_import.py",
-      "moduleName": "test_import.py",
-      "exports": [],
+    "C:/Users/user/Documents/william-tetris-game/.swarm/bundled-skills/codebase-review-swarm/scripts/validate-skill-package.py": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\.swarm\\bundled-skills\\codebase-review-swarm\\scripts\\validate-skill-package.py",
+      "moduleName": ".swarm/bundled-skills/codebase-review-swarm/scripts/validate-skill-package.py",
+      "exports": [
+        "parse_frontmatter",
+        "main"
+      ],
+      "exportLines": {
+        "parse_frontmatter": 19,
+        "main": 37
+      },
+      "exportRanges": {
+        "parse_frontmatter": {
+          "startLine": 19,
+          "endLine": 34
+        },
+        "main": {
+          "startLine": 37,
+          "endLine": 58
+        }
+      },
       "imports": [
-        "game",
-        "server",
-        "server"
+        "pathlib",
+        "re",
+        "sys"
       ],
       "language": "python",
-      "mtime": "2026-07-28T13:23:21.232Z",
+      "mtime": "2026-07-28T12:51:31.687Z",
       "ontology": {
         "roles": [
           "source_module"
         ],
-        "packageBoundary": "test_import.py",
+        "packageBoundary": ".swarm",
         "routes": [],
         "dataOperations": [],
-        "security": [],
+        "security": [
+          {
+            "kind": "input_validation",
+            "line": 2,
+            "evidence": "\"\"\"Validate the local Agent Skill package structure without external dependencies.\"\"\"",
+            "confidence": "high"
+          }
+        ],
         "conventions": [],
         "findings": []
       }
@@ -229,465 +320,6 @@
             "access": "unknown",
             "line": 391,
             "evidence": "self.garbage_queue += count"
-          }
-        ],
-        "security": [],
-        "conventions": [],
-        "findings": []
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/test_core.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_core.py",
-      "moduleName": "test_core.py",
-      "exports": [
-        "check",
-        "FakeWS",
-        "send",
-        "remote_address"
-      ],
-      "exportLines": {
-        "check": 14,
-        "FakeWS": 224,
-        "send": 227,
-        "remote_address": 229
-      },
-      "exportRanges": {
-        "check": {
-          "startLine": 14,
-          "endLine": 21
-        },
-        "FakeWS": {
-          "startLine": 224,
-          "endLine": 231
-        },
-        "send": {
-          "startLine": 227,
-          "endLine": 228
-        },
-        "remote_address": {
-          "startLine": 229,
-          "endLine": 231
-        }
-      },
-      "imports": [
-        "sys",
-        "time",
-        "game",
-        "server",
-        "asyncio"
-      ],
-      "language": "python",
-      "mtime": "2026-07-28T13:29:27.766Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "test_core.py",
-        "routes": [],
-        "dataOperations": [
-          {
-            "operation": "write",
-            "access": "sql",
-            "line": 5,
-            "evidence": "sys.path.insert(0, \".\")"
-          },
-          {
-            "operation": "delete",
-            "access": "unknown",
-            "line": 240,
-            "evidence": "# Test 28: Room add/remove player"
-          }
-        ],
-        "security": [],
-        "conventions": [],
-        "findings": [
-          {
-            "code": "multiple_writes_without_detected_transaction",
-            "severity": "low",
-            "message": "Multiple write/delete operations were detected without a transaction fact.",
-            "line": 5
-          }
-        ]
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/test_broadcast.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_broadcast.py",
-      "moduleName": "test_broadcast.py",
-      "exports": [
-        "FakeWS",
-        "send",
-        "close",
-        "closed",
-        "test"
-      ],
-      "exportLines": {
-        "FakeWS": 6,
-        "send": 11,
-        "close": 14,
-        "closed": 17,
-        "test": 22
-      },
-      "exportRanges": {
-        "FakeWS": {
-          "startLine": 6,
-          "endLine": 19
-        },
-        "send": {
-          "startLine": 11,
-          "endLine": 12
-        },
-        "close": {
-          "startLine": 14,
-          "endLine": 15
-        },
-        "closed": {
-          "startLine": 17,
-          "endLine": 19
-        },
-        "test": {
-          "startLine": 22,
-          "endLine": 62
-        }
-      },
-      "imports": [
-        "asyncio",
-        "server"
-      ],
-      "language": "python",
-      "mtime": "2026-07-28T13:35:59.926Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "test_broadcast.py",
-        "routes": [],
-        "dataOperations": [
-          {
-            "operation": "delete",
-            "access": "unknown",
-            "line": 56,
-            "evidence": "# Test remove player"
-          }
-        ],
-        "security": [],
-        "conventions": [],
-        "findings": []
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/test_integration.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_integration.py",
-      "moduleName": "test_integration.py",
-      "exports": [
-        "FakeWS",
-        "send",
-        "close",
-        "closed",
-        "test_game_flow"
-      ],
-      "exportLines": {
-        "FakeWS": 10,
-        "send": 17,
-        "close": 20,
-        "closed": 23,
-        "test_game_flow": 28
-      },
-      "exportRanges": {
-        "FakeWS": {
-          "startLine": 10,
-          "endLine": 25
-        },
-        "send": {
-          "startLine": 17,
-          "endLine": 18
-        },
-        "close": {
-          "startLine": 20,
-          "endLine": 21
-        },
-        "closed": {
-          "startLine": 23,
-          "endLine": 25
-        },
-        "test_game_flow": {
-          "startLine": 28,
-          "endLine": 160
-        }
-      },
-      "imports": [
-        "asyncio",
-        "json",
-        "sys",
-        "server",
-        "server",
-        "server",
-        "server"
-      ],
-      "language": "python",
-      "mtime": "2026-07-28T13:40:43.515Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "test_integration.py",
-        "routes": [],
-        "dataOperations": [
-          {
-            "operation": "write",
-            "access": "sql",
-            "line": 7,
-            "evidence": "sys.path.insert(0, \".\")"
-          },
-          {
-            "operation": "write",
-            "access": "sql",
-            "line": 89,
-            "evidence": "check(\"Player 1 gets state update\", len(state1) >= 1)"
-          }
-        ],
-        "security": [],
-        "conventions": [],
-        "findings": [
-          {
-            "code": "multiple_writes_without_detected_transaction",
-            "severity": "low",
-            "message": "Multiple write/delete operations were detected without a transaction fact.",
-            "line": 7
-          }
-        ]
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/test_ws.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\test_ws.py",
-      "moduleName": "test_ws.py",
-      "exports": [
-        "test_flow"
-      ],
-      "exportLines": {
-        "test_flow": 6
-      },
-      "exportRanges": {
-        "test_flow": {
-          "startLine": 6,
-          "endLine": 98
-        }
-      },
-      "imports": [
-        "asyncio",
-        "json",
-        "websockets",
-        "traceback"
-      ],
-      "language": "python",
-      "mtime": "2026-07-28T14:14:00.885Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "test_ws.py",
-        "routes": [],
-        "dataOperations": [
-          {
-            "operation": "write",
-            "access": "sql",
-            "line": 53,
-            "evidence": "print(f\"PASS: State update received after drop (score={msgs1[0].get('score','?')})\")"
-          }
-        ],
-        "security": [],
-        "conventions": [],
-        "findings": []
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/check_ws.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_ws.py",
-      "moduleName": "check_ws.py",
-      "exports": [],
-      "imports": [
-        "inspect",
-        "websockets",
-        "websockets.server",
-        "typing"
-      ],
-      "language": "python",
-      "mtime": "2026-07-28T14:30:42.916Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "check_ws.py",
-        "routes": [],
-        "dataOperations": [],
-        "security": [],
-        "conventions": [],
-        "findings": []
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/check_ws2.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_ws2.py",
-      "moduleName": "check_ws2.py",
-      "exports": [],
-      "imports": [
-        "websockets.server",
-        "inspect",
-        "websockets.http",
-        "inspect"
-      ],
-      "language": "python",
-      "mtime": "2026-07-28T14:31:21.675Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "check_ws2.py",
-        "routes": [],
-        "dataOperations": [
-          {
-            "operation": "write",
-            "access": "unknown",
-            "line": 16,
-            "evidence": "# Check how to create a simple response"
-          }
-        ],
-        "security": [],
-        "conventions": [],
-        "findings": []
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/check_ws3.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_ws3.py",
-      "moduleName": "check_ws3.py",
-      "exports": [],
-      "imports": [
-        "websockets",
-        "websockets.server",
-        "typing",
-        "inspect"
-      ],
-      "language": "python",
-      "mtime": "2026-07-28T14:31:30.515Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "check_ws3.py",
-        "routes": [],
-        "dataOperations": [],
-        "security": [],
-        "conventions": [],
-        "findings": []
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/check_ws4.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_ws4.py",
-      "moduleName": "check_ws4.py",
-      "exports": [],
-      "imports": [
-        "inspect",
-        "websockets",
-        "websockets.http11"
-      ],
-      "language": "python",
-      "mtime": "2026-07-28T14:31:39.295Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "check_ws4.py",
-        "routes": [],
-        "dataOperations": [],
-        "security": [],
-        "conventions": [],
-        "findings": []
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/check_ws5.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_ws5.py",
-      "moduleName": "check_ws5.py",
-      "exports": [],
-      "imports": [
-        "websockets.server"
-      ],
-      "language": "python",
-      "mtime": "2026-07-28T14:34:11.291Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "check_ws5.py",
-        "routes": [],
-        "dataOperations": [],
-        "security": [],
-        "conventions": [],
-        "findings": []
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/check_headers.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_headers.py",
-      "moduleName": "check_headers.py",
-      "exports": [],
-      "imports": [
-        "websockets"
-      ],
-      "language": "python",
-      "mtime": "2026-07-28T14:38:37.823Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "check_headers.py",
-        "routes": [],
-        "dataOperations": [],
-        "security": [],
-        "conventions": [],
-        "findings": []
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/check_headers2.py": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\check_headers2.py",
-      "moduleName": "check_headers2.py",
-      "exports": [],
-      "imports": [
-        "websockets"
-      ],
-      "language": "python",
-      "mtime": "2026-07-28T14:39:15.208Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "check_headers2.py",
-        "routes": [],
-        "dataOperations": [],
-        "security": [],
-        "conventions": [],
-        "findings": []
-      }
-    },
-    "C:/Users/user/Documents/william-tetris-game/showcase/sw.js": {
-      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\showcase\\sw.js",
-      "moduleName": "showcase/sw.js",
-      "exports": [],
-      "imports": [],
-      "language": "javascript",
-      "mtime": "2026-07-28T15:44:20.478Z",
-      "ontology": {
-        "roles": [
-          "source_module"
-        ],
-        "packageBoundary": "showcase",
-        "routes": [],
-        "dataOperations": [
-          {
-            "operation": "read",
-            "access": "network",
-            "line": 14,
-            "evidence": "self.addEventListener('fetch', (e) => {"
-          },
-          {
-            "operation": "read",
-            "access": "network",
-            "line": 16,
-            "evidence": "caches.match(e.request).then(r => r || fetch(e.request))"
           }
         ],
         "security": [],
@@ -912,13 +544,45 @@
           }
         ]
       }
+    },
+    "C:/Users/user/Documents/william-tetris-game/showcase/sw.js": {
+      "filePath": "C:\\Users\\user\\Documents\\william-tetris-game\\showcase\\sw.js",
+      "moduleName": "showcase/sw.js",
+      "exports": [],
+      "imports": [],
+      "language": "javascript",
+      "mtime": "2026-07-28T15:44:20.478Z",
+      "ontology": {
+        "roles": [
+          "source_module"
+        ],
+        "packageBoundary": "showcase",
+        "routes": [],
+        "dataOperations": [
+          {
+            "operation": "read",
+            "access": "network",
+            "line": 14,
+            "evidence": "self.addEventListener('fetch', (e) => {"
+          },
+          {
+            "operation": "read",
+            "access": "network",
+            "line": 16,
+            "evidence": "caches.match(e.request).then(r => r || fetch(e.request))"
+          }
+        ],
+        "security": [],
+        "conventions": [],
+        "findings": []
+      }
     }
   },
   "edges": [],
   "metadata": {
-    "generatedAt": "2026-07-28T15:58:10.942Z",
+    "generatedAt": "2026-07-29T00:51:01.859Z",
     "generator": "repo-graph",
-    "nodeCount": 16,
+    "nodeCount": 5,
     "edgeCount": 0
   },
   "diagnostics": {

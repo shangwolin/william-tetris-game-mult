@@ -4,6 +4,18 @@
 
 ---
 
+## 迴圈總體約束（Loop Governance）
+
+| 項目 | 設定值 |
+|------|--------|
+| **最大迴圈數** | 5 輪（對應 plan 5 個 Phase），超過即停止並回報 |
+| **每輪成功標準** | 該輪所有 Task 通過 Stage A（lint, SAST, secretscan）+ Stage B（reviewer APPROVED + test_engineer PASS） |
+| **安全閥** | • Circuit Breaker：coder 3 次失敗 → 暫停 → 諮詢 critic → 簡化或上報<br>• Spec-Staleness Guard：spec 與 plan 不一致時封鎖寫入<br>• Heartbeat + reconnect backoff<br>• Stage A gate 擋住 lint/secret/SAST 問題不進 Stage B |
+| **Token / 成本上限** | 無硬性限制（本次作業無成本考量），但 circuit breaker 防止無限浪費 |
+| **中斷接續** | progress.md 記錄最後完成的 loop 與待辦事項，可從該處接續 |
+
+---
+
 ## Loop 1 — Backend Core
 
 | Field | Value |

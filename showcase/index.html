@@ -265,6 +265,17 @@
   </div>
 
   <div class="card">
+    <h3>迴圈總體約束（Loop Governance）</h3>
+    <table>
+      <tr><th>項目</th><th>設定值</th></tr>
+      <tr><td>最大迴圈數</td><td><strong>5 輪</strong>（對應 plan 5 個 Phase），超過即停止並回報</td></tr>
+      <tr><td>每輪成功標準</td><td>該輪所有 Task 通過 Stage A + Stage B</td></tr>
+      <tr><td>安全閥</td><td>Circuit Breaker、Spec-Staleness Guard、Heartbeat、Stage A gate</td></tr>
+      <tr><td>中斷接續</td><td><code>progress.md</code> 記錄最後完成的 loop 與待辦事項</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
     <h3>Loop 執行歷程（5 輪）</h3>
     <div class="timeline">
       <div class="tl-item done">
