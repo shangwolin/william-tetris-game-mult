@@ -16,12 +16,12 @@ confirmed: true
 
 | Tool | Calls | Success | Failed | Avg Duration |
 |------|-------|---------|--------|--------------|
-| read | 108 | 108 | 0 | 16ms |
-| edit | 89 | 89 | 0 | 15ms |
-| bash | 65 | 65 | 0 | 1642ms |
+| read | 120 | 120 | 0 | 16ms |
+| edit | 91 | 91 | 0 | 15ms |
+| bash | 68 | 68 | 0 | 1619ms |
 | grep | 41 | 41 | 0 | 633ms |
+| glob | 29 | 29 | 0 | 53ms |
 | write | 27 | 27 | 0 | 6ms |
-| glob | 26 | 26 | 0 | 55ms |
 | update_task_status | 22 | 22 | 0 | 116ms |
 | task | 14 | 14 | 0 | 145350ms |
 | declare_scope | 9 | 9 | 0 | 19ms |

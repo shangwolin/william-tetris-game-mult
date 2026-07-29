@@ -733,3 +733,11 @@
 {"timestamp":"2026-07-28T15:57:56.609Z","event":"heartbeat","sessionId":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3"}
 {"timestamp":"2026-07-28T15:58:47.829Z","event":"heartbeat","sessionId":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3"}
 {"timestamp":"2026-07-28T15:59:22.548Z","event":"heartbeat","sessionId":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3"}
+{"timestamp":"2026-07-29T01:03:39.668Z","event":"heartbeat","sessionId":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3"}
+{"timestamp":"2026-07-29T01:03:39.704Z","event":"session_started","sessionId":"ses_05499f358ffejPeCr8ChBiOU3V","agentName":"curator_init"}
+{"timestamp":"2026-07-29T01:03:39.704Z","event":"delegation_begin","sessionId":"ses_05499f358ffejPeCr8ChBiOU3V","agentName":"curator_init","taskId":"unknown"}
+{"timestamp":"2026-07-29T01:03:39.793Z","event":"model_fallback","sessionId":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agentName":"curator_init","fromModel":"opencode/gpt-5-nano","toModel":"opencode/big-pickle","reason":"transient_model_error"}
+{"timestamp":"2026-07-29T01:03:39.799Z","event":"delegation_begin","sessionId":"ses_05499f358ffejPeCr8ChBiOU3V","agentName":"curator_init","taskId":"unknown"}
+{"timestamp":"2026-07-29T01:03:40.256Z","event":"heartbeat","sessionId":"ses_05499f358ffejPeCr8ChBiOU3V"}
+{"timestamp":"2026-07-29T01:04:10.304Z","event":"heartbeat","sessionId":"ses_05499f358ffejPeCr8ChBiOU3V"}
+{"timestamp":"2026-07-29T01:05:01.595Z","event":"heartbeat","sessionId":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3"}

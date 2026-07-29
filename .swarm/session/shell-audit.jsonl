@@ -108,3 +108,9 @@
 {"ts":"2026-07-28T15:59:31.406Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git commit -m \"Fix server.py: add missing import os for static file handler\""}
 {"ts":"2026-07-28T15:59:37.570Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git push"}
 {"ts":"2026-07-29T01:05:29.634Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git add -A"}
+{"ts":"2026-07-29T01:05:34.815Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git commit -m \"Add Loop Governance: max 5 rounds, success criteria, safety guardrails documented in progress.md & showcase\""}
+{"ts":"2026-07-29T01:05:40.753Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git push"}
+{"ts":"2026-07-29T01:05:49.564Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"Get-ChildItem -LiteralPath \"showcase\" -Name"}
+{"ts":"2026-07-29T01:05:54.864Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"Remove-Item -LiteralPath \"showcase\\*.png\" -ErrorAction SilentlyContinue; Write-Output \"cleaned\""}
+{"ts":"2026-07-29T01:06:00.618Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git rm -f --cached \"showcase/*.png\" 2>&1; Write-Output \"done\""}
+{"ts":"2026-07-29T01:06:06.562Z","sessionID":"ses_0572fb5b5ffeOyTGhdgv1g7Ip3","agent":"architect","tool":"bash","command":"git add -A; git commit -m \"Remove accidentally committed .png from showcase\""}
